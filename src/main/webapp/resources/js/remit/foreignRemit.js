@@ -1,8 +1,9 @@
 "use strict"
 var foreignRemit = foreignRemit || {}
 foreignRemit = (()=>{
+	
 	const WHEN_ERR = '레미트 js파일을 찾지 못했습니다.'
-	let _,js,auth_js,main_vue_js,remit_vue_js,cookie_js
+	let _,js,auth_js,main_vue_js,remit_vue_js,cookie_js,amount
 
 	let init = ()=>{
 		_ = $.ctx()
@@ -11,6 +12,7 @@ foreignRemit = (()=>{
 		auth_js = js + '/cmm/auth.js'
 		cookie_js = js + '/cmm/cookie.js'
 		remit_vue_js = js + '/remit/remit_vue.js'
+		amount = sessionStorage.getItem('amount')
 	}
 	let onCreate =()=>{
 		init()
@@ -27,10 +29,14 @@ foreignRemit = (()=>{
 			alert(WHEN_ERR)
 		})
 	}
+	
 	let setContentView = ()=>{
 		$('.themoin-main')
 		.html(remit_vue.remit_first())
 		$('.themoin-footer').empty()
+		if(amount >= 3000)
+		{$('#fee_check').text('12$')}
+		else {$('#fee_check').text('6$')}
 	}
 	let remit_sec =()=>{
 		$('.themoin-main')

@@ -18,6 +18,8 @@ mypage =(()=>{
 		main_class = 'themoin-main'
 		withdrawal_js = '/mypage/withdrawal.js'
 		line_graph_js = js + '/exchart/line_graph.js'
+		
+		
 	}
 	
 	let onCreate =()=>{
@@ -57,9 +59,12 @@ mypage =(()=>{
 		.addClass('index-send-btn moin-body')
 		.appendTo('#remit_box')
 		.click(()=>{
+			sessionStorage.setItem('amount', document.getElementById('send_amount').value);
 			foreignRemit.onCreate()
 		})
+		 
 	}
+
 	
 	let page_move =()=>{
 		$('#mgmt')
