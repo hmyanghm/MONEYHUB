@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.moneyhub.web.cus.domains.Customer;
 import com.moneyhub.web.cus.mappers.CustomerMapper;
 import com.moneyhub.web.cus.serviceimpls.CustomerServiceImpl;
+import com.moneyhub.web.cus.services.AccountService;
 import com.moneyhub.web.cus.util.CustomerSha256;
 import com.moneyhub.web.enums.SQL;
 import com.moneyhub.web.faq.FAQ;
@@ -34,6 +35,7 @@ public class CustomerCtrl extends Proxy {
 	@Autowired CustomerMapper cusMapper;
 	@Autowired Box<Object> box;
 	@Autowired SqlSession sqlsession;
+	@Autowired AccountService accountService;
 	// @Autowired CustMailSender mailSender;
 	// private HttpServletRequest request;
 
@@ -63,6 +65,8 @@ public class CustomerCtrl extends Proxy {
 		param.setCpwd(encrypwd);
 		System.out.println("두번째 비번: " + param.getCpwd());
 		cusMapper.join(param);
+//		ArrayList<String> list = new ArrayList<>();
+//		list = accountService.createAccount(param);
 		// mailSender.mailSendWithUserKey(param.getCemail(), request);
 		box.clear();
 		box.put("msg", "SUCCESS");
@@ -180,11 +184,14 @@ public class CustomerCtrl extends Proxy {
 		c.accept(param);
 		System.out.println("param:::"+param);
 		System.out.println("cus:::"+cus);
+		ArrayList<String> list = new ArrayList<>();
+		list = accountService.createAccount(cus);
+		
 		box.clear();
-		//box.put("cemail", cus.getCemail());
-		//box.put("cpwd", cus.getCpwd());
-		//box.put("sdate", cus.getSdate().replace("-", "").substring(2));
-		//box.put("cno", cus.getCno());
+		box.put("cemail", cus.getCemail());
+		box.put("cpwd", cus.getCpwd());
+		box.put("sdate", cus.getSdate().replace("-", "").substring(2));
+		box.put("cno", cus.getCno());
 		//box.put("CreateAcc", CustomerMapper. );  
 		System.out.println("cus -----------> "+cus);
 		System.out.println("box.get() -----------> "+box.get().toString());

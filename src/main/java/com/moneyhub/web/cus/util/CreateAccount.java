@@ -8,9 +8,6 @@ public class CreateAccount {
 		
 		//난수
 		int ran = (int) (Math.random()*10000);
-		if(ran < 10) {
-			ran = ran*10+1;
-		}
 		
 		
 	}

@@ -54,7 +54,8 @@
 	<!-- dateTimePicker -->
 	<script src="<%=application.getContextPath()%>/resources/js/datepicker/bootstrap-datepicker.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/datepicker/bootstrap-datepicker.ko.js"></script>
-	
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 	<script src="<%=application.getContextPath()%>/resources/js/app.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/cmm/router.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/cmm/common.js"></script>
