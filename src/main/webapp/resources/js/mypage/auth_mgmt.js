@@ -28,7 +28,12 @@ auth_mgmt =(()=>{
 		
 		$.getJSON(_+'/customers/CreateAcc/' + $('#cemail').val(), d=>{
 			cemail : sessionStorage.getItem('CEMAIL')
-			$('#account').text(d.cus.sdate.replace(/-/gi,"").substring(2)+d.cus.cno)
+			var ran = (Math.random()*10000).substring(0,1)
+			var sdate = d.cus.sdate.replace(/-/gi,"").substring(2)
+			var cno = d.cus.cno
+			alert(ran)
+			alert(sdate + cno)
+			$('#account').text(ran + sdate + cno)
 			
 		})
 		

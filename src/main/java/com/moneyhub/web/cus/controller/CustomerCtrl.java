@@ -19,6 +19,7 @@ import com.moneyhub.web.cus.domains.Customer;
 import com.moneyhub.web.cus.mappers.CustomerMapper;
 import com.moneyhub.web.cus.serviceimpls.CustomerServiceImpl;
 import com.moneyhub.web.cus.util.CustomerSha256;
+import com.moneyhub.web.enums.SQL;
 import com.moneyhub.web.faq.FAQ;
 import com.moneyhub.web.pxy.Box;
 import com.moneyhub.web.pxy.Proxy;
@@ -139,28 +140,19 @@ public class CustomerCtrl extends Proxy {
 	@GetMapping("/cusInfo/{cemail}")
 	public Map<? ,?> cusInfo(Customer param){
 		System.out.println("=============================cusInfo");
-		System.out.println("param은?????????????"+param);
-		System.out.println("cus는?????????????"+cus);
-		//Function<Customer, Customer> f = t -> cusMapper.cusInfo(t);
-		//cus = f.apply(param);
 		Consumer<Customer> c = o -> cusMapper.cusInfo(o);
 		c.accept(param);
 		box.clear();
 		box.put("cus", cus);
-		System.out.println("============>>>>>>cus는????" + cus);
 		System.out.println("box.get() -----------> "+box.get().toString());
 		return box.get();
 	}
 	
 	@PostMapping("/cusInfoChg")
 	public Map<?, ?> cusInfoChg(@RequestBody Customer param) {
-		System.out.println("-------------------------------------");
-		System.out.println("자바 회원 정보 수정 들어옴");
-		System.out.println("-------------------------------------");
-		System.out.println("---------------"+param.toString());
+		System.out.println("=============================자바 회원 정보 수정 들어옴");
 		Consumer<Customer> c = o -> cusMapper.cusInfoChg(o);
 		c.accept(param);
-		System.out.println("***********"+param.toString());
 		System.out.println("cus는???????????"+cus);
 		String daddr = cus.getDaddr();
 		String zip = param.getZip(); //정보번호 변경 시 입력한 우편번호
@@ -182,12 +174,17 @@ public class CustomerCtrl extends Proxy {
 	
 	@GetMapping("/CreateAcc/{cemail}")
 	public Map<? ,?> CreateAcc(Customer param){
+		System.out.println("=============================계좌 생성 들어옴");
 		Consumer<Customer> c = o -> cusMapper.CreateAcc(o);
 		c.accept(param);
-		//Function<Customer, Customer> f = t -> cusMapper.CreateAcc(t);
+		System.out.println("param:::"+param);
+		System.out.println("cus:::"+cus);
 		box.clear();
-		box.put("cus", cus);
-		//box.put("cus", f.apply(cus));
+		//box.put("cemail", cus.getCemail());
+		//box.put("cpwd", cus.getCpwd());
+		//box.put("sdate", cus.getSdate().replace("-", "").substring(2));
+		//box.put("cno", cus.getCno());
+		//box.put("CreateAcc", CustomerMapper. );
 		System.out.println("cus -----------> "+cus);
 		System.out.println("box.get() -----------> "+box.get().toString());
 		return box.get();
