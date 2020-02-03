@@ -69,12 +69,13 @@ public class CustomerCtrl extends Proxy {
 		return box.get();
 	}
 
-	@GetMapping("/existid/{cemail}")
+	@GetMapping("/existid/{cemail}/")
 	public Map<?, ?> existId(@PathVariable String cemail) {
 		System.out.println("existid 들어옴");
 		Function<String, Integer> f = o -> cusMapper.existId(o);
 		box.clear();
 		box.put("msg", (f.apply(cemail) != 0) ? "Y" : "N");
+		System.out.println("1111111111"+cemail);
 		System.out.println(box.get());
 		return box.get();
 	}
@@ -184,7 +185,7 @@ public class CustomerCtrl extends Proxy {
 		//box.put("cpwd", cus.getCpwd());
 		//box.put("sdate", cus.getSdate().replace("-", "").substring(2));
 		//box.put("cno", cus.getCno());
-		//box.put("CreateAcc", CustomerMapper. );
+		//box.put("CreateAcc", CustomerMapper. );  
 		System.out.println("cus -----------> "+cus);
 		System.out.println("box.get() -----------> "+box.get().toString());
 		return box.get();

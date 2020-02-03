@@ -11,7 +11,7 @@ public interface CustomerMapper {
 	
 	public void join(Customer param);
 	public Customer login(Customer param);
-	public int existId(String id);
+	public int existId(String cemail);
 	public void pwdSha(Customer param);
 //	public int pwdCheck(Customer param);
 	public void withdrawal(Customer param);

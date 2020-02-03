@@ -366,7 +366,7 @@ auth =(()=>{
 		$('#cemail').keyup(()=>{
 			if($('#cemail').val().length >= 1){
 				$.ajax({
-					url : _+'/customers' + '/existid/' + encodeURIComponent($('#cemail').val()),
+					url : _+'/customers' + '/existid/' + encodeURIComponent($('#cemail').val() + '/'),
 					type: 'GET',
 					data: JSON.stringify({
 						cemail : $('#cemail').val()
@@ -375,6 +375,7 @@ auth =(()=>{
 					contentType : 'application/json',
 					success: d=>{
 						if(d.msg === 'Y'){
+							alert($('#cemail').val())
 							$('#moneyhub-id div')
 							.text('이미 있는 아이디입니다.')
 							.css({
