@@ -45,7 +45,7 @@
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
 	<!-- kakao login -->
-	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<!-- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> -->
 	
 	<!-- chart -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
