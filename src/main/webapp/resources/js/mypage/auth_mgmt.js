@@ -25,9 +25,9 @@ auth_mgmt =(()=>{
 	let setContentView =()=>{
 		$('#root div.mypage')
 		.html(mypage_vue.auth_mgmt())
-		cemail : sessionStorage.getItem('CEMAIL')
-		$.getJSON(_+'/customers/getAcc/' + cemail + '/' + sessionStorage.getItem('CNO'), d=>{
-			
+//		cemail : sessionStorage.getItem('CEMAIL')
+//		cno : sessionStorage.getItem('CNO')
+		$.getJSON(_+'/customers/getAcc/' + sessionStorage.getItem('CEMAIL') + '/' + sessionStorage.getItem('CNO'), d=>{
 			if(d.msg === "SUCCESS"){
 				alert('성공')
 				$('#cname').text(d.cname)
