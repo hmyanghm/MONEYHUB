@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="getAcc" resultType="Account">
-		SELECT ACCT_NO
+		SELECT *
 		FROM ACCOUNT
 		WHERE CEMAIL = #{cemail}
 	</select>

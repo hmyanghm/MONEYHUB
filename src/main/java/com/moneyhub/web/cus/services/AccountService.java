@@ -1,7 +1,5 @@
 package com.moneyhub.web.cus.services;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,13 +30,6 @@ public class AccountService {
 			System.out.println("acc는????" + acc.toString());
 			accMapper.createAcc(acc);
 		}
-		
 	}
-
-//	public Account getAcc(Customer cus) {
-//		acc.getAcct_no();
-//		accMapper.getAcc(acctNo);
-//		return acctNo;
-//	}
 	
 }

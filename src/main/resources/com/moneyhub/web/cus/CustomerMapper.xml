@@ -108,4 +108,10 @@
 	]]>
 	</select> -->
 	
+	<select id="getInfo" resultType="Customer">
+		SELECT *
+		FROM CUSTOMER
+		WHERE CEMAIL = #{cemail}
+	</select>
+	
 </mapper>

@@ -25,12 +25,13 @@ auth_mgmt =(()=>{
 	let setContentView =()=>{
 		$('#root div.mypage')
 		.html(mypage_vue.auth_mgmt())
-		
-		$.getJSON(_+'/customers/CreateAcc/' + $('#acct_no').val(), d=>{
+
+		$.getJSON(_+'/customers/getAcc/' + $('#cemail').val(), d=>{
 			cemail : sessionStorage.getItem('CEMAIL')
-			if(d.acc === "SUCCESS"){
+			if(d.msg === "SUCCESS"){
 				alert('성공')
-				$('#account').text(d.acc.result)
+				$('#cname').text(d.cname)
+				$('#account').text(d.accNo)
 			}else{
 				alert('실패')
 			}

@@ -19,4 +19,5 @@ public interface CustomerMapper {
 	public Customer cusInfo(Customer param);
 	public void cusInfoChg(Customer param);
 	public Customer CreateAcc(Customer param);
+	public Customer getInfo(Customer param);
 }

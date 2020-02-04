@@ -1,6 +1,5 @@
 package com.moneyhub.web.cus.controller;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.moneyhub.web.cus.domains.Account;
 import com.moneyhub.web.cus.domains.Customer;
 import com.moneyhub.web.cus.mappers.AccountMapper;
 import com.moneyhub.web.cus.mappers.CustomerMapper;
@@ -35,6 +35,7 @@ public class CustomerCtrl extends Proxy {
 	@Autowired SqlSession sqlsession;
 	@Autowired AccountService accountService;
 	@Autowired AccountMapper accMapper;
+	@Autowired Account acc;
 	// @Autowired CustMailSender mailSender;
 	// private HttpServletRequest request;
 
@@ -183,13 +184,23 @@ public class CustomerCtrl extends Proxy {
 		return box.get();
 	}
 	
-//	@GetMapping("/getAcc/{cemail}")
-//	public Map<? ,?> getAcc(){
-//		accountService.getAcc(cus);
-//		box.clear();
-//		box.put("acc", "SUCCESS");
-//		System.out.println("box.get() -----------> "+box.get().toString());
-//		return box.get();
-//	}
+	@GetMapping("/getAcc/{cemail}")
+	public Map<? ,?> getAcc(@PathVariable String cemail){
+		System.out.println("=============================계좌번호 조회 들어옴1!!!!!");
+		Function<String, Account> f = t -> accMapper.getAcc(acc);
+		acc = f.apply(cemail);
+		Function<String, Customer> f2 = t -> cusMapper.getInfo(cus);
+		cus = f2.apply(cemail);
+		box.clear();
+		box.put("msg", "SUCCESS");
+		box.put("cemail", cus.getCemail());
+		box.put("cname", cus.getCname());
+		box.put("accNo", acc.getAcct_no());
+		System.out.println("param은?" );
+		System.out.println("cus는?" + cus);
+		System.out.println("acc는?" + acc);
+		System.out.println("box.get() -----------> "+box.get().toString());
+		return box.get();
+	}
 	
 }
