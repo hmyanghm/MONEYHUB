@@ -36,15 +36,21 @@ exchange =(()=>{
 		
 		$('#popup-exchange').empty()
 		
-		$('#expect').blur(function(){
+		//최근 한 달간의 환율 가져올 수 있나?
+		//(오늘 데이터 - 전일 데이터) > 0 => 상승
+		//(오늘 데이터 - 전일 데이터) < 0 => 하락
+		
+		
+		//환율 추이
+		/*$('#expect').blur(function(){
 			if(expect.test($('#expect').val())){
-				$('#exchange_check').text('최근 1주일간 해당 환율이 오르는 추세입니다.')
+				$('#exchange_check').text('최근 1주일간 해당 환율은 상승세입니다.')
 				$('#exchange_check').css('color', 'blue')
 			}else{
-				$('#exchange_check').text('최근 1주일간 해당 환율이 떨어지는 추세입니다.')
+				$('#exchange_check').text('최근 1주일간 해당 환율은 하락세입니다.')
 				$('#exchange_check').css('color', 'red')
 			}
-		})
+		})*/
 		
 		$(function(){
 			$('#exchangebutton')
