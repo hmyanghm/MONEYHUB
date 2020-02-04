@@ -375,7 +375,6 @@ auth =(()=>{
 					contentType : 'application/json',
 					success: d=>{
 						if(d.msg === 'Y'){
-							alert($('#cemail').val())
 							$('#moneyhub-id div')
 							.text('이미 있는 아이디입니다.')
 							.css({

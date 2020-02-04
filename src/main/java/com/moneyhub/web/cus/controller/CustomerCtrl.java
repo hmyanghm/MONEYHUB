@@ -79,7 +79,6 @@ public class CustomerCtrl extends Proxy {
 		Function<String, Integer> f = o -> cusMapper.existId(o);
 		box.clear();
 		box.put("msg", (f.apply(cemail) != 0) ? "Y" : "N");
-		System.out.println("1111111111"+cemail);
 		System.out.println(box.get());
 		return box.get();
 	}
