@@ -26,15 +26,14 @@ auth_mgmt =(()=>{
 		$('#root div.mypage')
 		.html(mypage_vue.auth_mgmt())
 		
-		$.getJSON(_+'/customers/CreateAcc/' + $('#cemail').val(), d=>{
+		$.getJSON(_+'/customers/CreateAcc/' + $('#acct_no').val(), d=>{
 			cemail : sessionStorage.getItem('CEMAIL')
-			var ran = (Math.random()*10000).substring(0,1)
-			var sdate = d.cus.sdate.replace(/-/gi,"").substring(2)
-			var cno = d.cus.cno
-			alert(ran)
-			alert(sdate + cno)
-			$('#account').text(ran + sdate + cno)
-			
+			if(d.acc === "SUCCESS"){
+				alert('성공')
+				$('#account').text(d.acc.result)
+			}else{
+				alert('실패')
+			}
 		})
 		
 		$('#copy_btn').on('click', function(e){

@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moneyhub.web.cus.domains.Customer;
+import com.moneyhub.web.cus.mappers.AccountMapper;
 import com.moneyhub.web.cus.mappers.CustomerMapper;
-import com.moneyhub.web.cus.serviceimpls.CustomerServiceImpl;
 import com.moneyhub.web.cus.services.AccountService;
 import com.moneyhub.web.cus.util.CustomerSha256;
-import com.moneyhub.web.enums.SQL;
-import com.moneyhub.web.faq.FAQ;
 import com.moneyhub.web.pxy.Box;
 import com.moneyhub.web.pxy.Proxy;
 
@@ -36,6 +34,7 @@ public class CustomerCtrl extends Proxy {
 	@Autowired Box<Object> box;
 	@Autowired SqlSession sqlsession;
 	@Autowired AccountService accountService;
+	@Autowired AccountMapper accMapper;
 	// @Autowired CustMailSender mailSender;
 	// private HttpServletRequest request;
 
@@ -65,9 +64,7 @@ public class CustomerCtrl extends Proxy {
 		param.setCpwd(encrypwd);
 		System.out.println("두번째 비번: " + param.getCpwd());
 		cusMapper.join(param);
-//		ArrayList<String> list = new ArrayList<>();
-//		list = accountService.createAccount(param);
-		// mailSender.mailSendWithUserKey(param.getCemail(), request);
+		accountService.createAcc(param);
 		box.clear();
 		box.put("msg", "SUCCESS");
 		return box.get();
@@ -82,6 +79,16 @@ public class CustomerCtrl extends Proxy {
 		System.out.println(box.get());
 		return box.get();
 	}
+	
+//	@GetMapping("/existid/{acct_no}/")
+//	public Map<?, ?> existAcc(@PathVariable String acc) {
+//		System.out.println("existAcc!!!!!! 들어옴");
+//		Function<String, Integer> f = o -> accMapper.existAcc(o);
+//		box.clear();
+//		box.put("msg", (f.apply(acc) != 0) ? "Y" : "N");
+//		System.out.println(box.get());
+//		return box.get();
+//	}
 
 //	@PostMapping("/pwdCheck")
 //	public Map<?, ?> pwdCheck(@RequestBody Customer param) {
@@ -176,25 +183,13 @@ public class CustomerCtrl extends Proxy {
 		return box.get();
 	}
 	
-	@GetMapping("/CreateAcc/{cemail}")
-	public Map<? ,?> CreateAcc(Customer param){
-		System.out.println("=============================계좌 생성 들어옴");
-		Consumer<Customer> c = o -> cusMapper.CreateAcc(o);
-		c.accept(param);
-		System.out.println("param:::"+param);
-		System.out.println("cus:::"+cus);
-		ArrayList<String> list = new ArrayList<>();
-		list = accountService.createAccount(cus);
-		
-		box.clear();
-		box.put("cemail", cus.getCemail());
-		box.put("cpwd", cus.getCpwd());
-		box.put("sdate", cus.getSdate().replace("-", "").substring(2));
-		box.put("cno", cus.getCno());
-		//box.put("CreateAcc", CustomerMapper. );  
-		System.out.println("cus -----------> "+cus);
-		System.out.println("box.get() -----------> "+box.get().toString());
-		return box.get();
-	}
+//	@GetMapping("/getAcc/{cemail}")
+//	public Map<? ,?> getAcc(){
+//		accountService.getAcc(cus);
+//		box.clear();
+//		box.put("acc", "SUCCESS");
+//		System.out.println("box.get() -----------> "+box.get().toString());
+//		return box.get();
+//	}
 	
 }

@@ -93,6 +93,7 @@ auth =(()=>{
 						sessionStorage.setItem('ADDR', d.cus.addr)
 						sessionStorage.setItem('DADDR', d.cus.daddr)
 						sessionStorage.setItem('CNO', d.cus.cno)
+						sessionStorage.setItem('ACC', JSON.stringify(d.result))
 						//======================================================
 						mypage.onCreate()
 					
