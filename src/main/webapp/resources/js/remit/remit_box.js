@@ -35,7 +35,7 @@ remit_box =(()=>{
 							{ img : 'jp', cntcd : 'JPY', curr : '일본 엔', flag : '' }]
 			
 			if( cntcd === 'KRW' ){
-//				alert('cntcd : ' + cntcd)
+//				alert('cntcd : ' + cntcd) cntcd = 국가코드
 				$('.form-calculator .amount-row .send')	// send cntcd 클릭 시
 				.click(e=>{
 					e.preventDefault()

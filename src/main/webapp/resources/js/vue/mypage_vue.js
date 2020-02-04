@@ -435,13 +435,14 @@ mypage_vue = {
 		'				<div class="amount-row">'+
 		'					<div class="">'+
 		'						<p>예상 비용</p>'+
-		'						<input class="receive-amount" type="text" tabindex="0" placeholder="0.00" readonly="">'+
+		'						<input class="receive-amount" id="expect" type="text" tabindex="0" placeholder="0.00" readonly="">'+
 		'					</div>'+
 		'					<div class="unit-select receive" tabindex="0">'+
 		'						<p>미국</p>'+
 		'						<h3>USD</h3>'+
 		'					</div>'+
 		'				</div>'+
+		'				<div class="check_font" id="exchange_check" ></div>'+
 		'				<button id="exchangebutton" class="index-send-btn moin-body">환전하기</button>'+
 		'			</div>'+
 		'		</div>'+
