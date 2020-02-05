@@ -19,10 +19,13 @@ remit_box =(()=>{
 
 		popup()
 		
-		/*$.getScript(exrate_js)
-		.done(()=>{
-			exrate.onCreate()
-		})*/
+		if(flag === 'exchange'){
+			$.getScript(exrate_js)
+			.done(()=>{
+				exrate.onCreate()
+			})
+		}
+			
 	}
 	
 	let popup =()=>{
@@ -135,21 +138,22 @@ remit_box =(()=>{
 					deal.cntp =$('.form-calculator .amount-row .receive p').text() //송금 국가명, 국가코드
 					deal.cntcd = $('.form-calculator .amount-row .receive h3').text()
 					sessionStorage.setItem('deal',JSON.stringify(deal))
-					alert("레미트박스deal.cntp"+deal.cntp+"deal.cntcd "+deal.cntcd)
+					alert("레미트박스 국가명 >>>"+deal.cntp+"국가코드 >>>"+deal.cntcd)
 					
 				}
 				else if(( j.flag === 'exchange')){
 					$('.form-calculator .amount-row .send p').text(`${j.curr.substring(0, j.curr.indexOf(' '))}`)
 					$('.form-calculator .amount-row .send h3').text(`${j.cntcd}`)
+				
 					$('#popup-exchange').show()
 					exrate.onCreate()
 
 				}
-				/*else{
-					$('.form-calculator .amount-row .receive p').text(`${j.curr.substring(0, j.curr.indexOf(' '))}`)
+				else{
+					/*$('.form-calculator .amount-row .receive p').text(`${j.curr.substring(0, j.curr.indexOf(' '))}`)
 					$('.form-calculator .amount-row .receive h3').text(`${j.cntcd}`)
-					exrate.onCreate()
-				}*/
+					exrate.onCreate()*/
+				}
 			})
 		})
 		
