@@ -124,6 +124,7 @@ remit_box =(()=>{
 				$('#popup_box input').val('')
 
 				if( j.flag === 'mypage'){
+					alert('dddddd')
 					$('.form-calculator .amount-row .receive p').text(`${j.curr.substring(0, j.curr.indexOf(' '))}`)
 					$('.form-calculator .amount-row .receive h3').text(`${j.cntcd}`)
 					$('#chart')
