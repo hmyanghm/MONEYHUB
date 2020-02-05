@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moneyhub.web.cus.domains.Account;
@@ -184,6 +185,7 @@ public class CustomerCtrl extends Proxy {
 		return box.get();
 	}
 	
+
 	@GetMapping("/getAcc/{cemail}/{cno}")
 	public Map<? ,?> getAcc(@PathVariable String cemail, @PathVariable String cno){
 		System.out.println("=============================계좌번호 조회 들어옴1!!!!!" + cemail);
@@ -201,6 +203,7 @@ public class CustomerCtrl extends Proxy {
 		System.out.println("param은?" );
 //		System.out.println("cus는?" + cus);
 		System.out.println("acc는?" + acc.getAcctNo());
+
 		System.out.println("box.get() -----------> "+box.get().toString());
 		return box.get();
 	}

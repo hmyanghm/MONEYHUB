@@ -10,4 +10,5 @@ public interface AccountMapper {
 	public void createAcc(Account acc);
 	public int existAcc(String acc);
 	public Account getAcc(String t);
+
 }

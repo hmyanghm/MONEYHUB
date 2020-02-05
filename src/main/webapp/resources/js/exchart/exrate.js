@@ -23,45 +23,19 @@ exrate =(()=>{
 			cntcd = receive_cntcd
 		}
 
-		
 		$.getJSON( '/web/exrate/search/cntcd/' + cntcd, d=>{	
 			$.each(d.exlist.reverse(), (i, j)=>{
 				exrate_arr.push(parseFloat(j.exrate))
 			})
-			deal.exrate = exrate_arr[0]
+			/*deal.exrate = exrate_arr[0]*/
 			receive_value_calc()
 			$('.form-calculator .amount-row input.send-amount').keyup(()=>{
 				receive_value_calc()
 			})
 			sessionStorage.setItem('deal',JSON.stringify(deal))
 		})
-		let exrate = $.exrate()
-/*		switch (receive_cntcd) {
-		case 'KRW':
-			cntcd = send_cntcd
-			break;
-		case 'USD':
-			cntcd = exrate.usd
-			break;
-		case 'EUR':
-			cntcd = exrate.eur
-			break;
-		case 'CNY':
-			cntcd = exrate.cny
-			break;
-		case 'JPY':
-			cntcd = exrate.jpy
-			break;
-		case 'AUD':
-			cntcd = exrate.aud
-			break;
-		}	
-		
-		receive_value_calc()
-		$('.form-calculator .amount-row input.send-amount').keyup(()=>{
-			receive_value_calc()
-		})
-		*/
+	//	let exrate = $.exrate()
+
 		//	수수료 1.5%
 		let receive_value_calc =()=>{
 			let receive_value = common.comma_remove($('.form-calculator .amount-row input.send-amount').val()) 
@@ -75,7 +49,7 @@ exrate =(()=>{
 			
 			$('.form-calculator .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2)))
 
-			deal.amount = $('.form-calculator .amount-row input.send-amount').val()
+			deal.trdusd = $('.form-calculator .amount-row input.send-amount').val()
 			sessionStorage.setItem('deal',JSON.stringify(deal))
 		}
 	}
