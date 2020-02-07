@@ -30,7 +30,10 @@ public class ExchangeService {
 		System.out.println("insertExchange의 mtcn1 - " + mtcn);
 		ex.setMtcn(mtcn);
 		System.out.println("insertExchange의 mtcn2 - " + ex.getMtcn());
-		
+
+		ex.setAcctNo(exchange.get("acctNo").toString());
+		System.out.println("insertExchange의 AcctNo - " + exchange.get("acctNo").toString());
+
 		ex.setCemail(exchange.get("cemail").toString());
 		System.out.println("insertExchange의 Cemail - " + exchange.get("cemail").toString());
 		
@@ -59,12 +62,12 @@ public class ExchangeService {
 		
 		ex.setTrdStatCd("0");
 		System.out.println("insertExchange의 setTrdStatCd - " + ex.getTrdStatCd());
-		
+
 		//
 		ex.setAcctNo(exchange.get("acctNo").toString());
 		System.out.println("insertExchange의 AcctNo - " + exchange.get("acctNo").toString());
 		//
-		
+
 	}
 	
 	public Map<?, ?> ExTrend(String cntcd){

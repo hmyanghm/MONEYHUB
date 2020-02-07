@@ -1,7 +1,9 @@
 var exchange = exchange || {}
 exchange =(()=>{
 	const WHEN_ERR = 'js파일을 찾지 못했습니다.'
+
 	let _, js, mypage_vue_js, exChart_js, remit_box_js, line_graph_js, nav_vue_js, exch
+
 	let init =()=>{
 		_ = $.ctx()
 		js = $.js()
@@ -38,12 +40,13 @@ exchange =(()=>{
 		.hide()
 		
 		$('#popup-exchange').empty()
-		
+
 		$(function(){
 			$('#exchangebutton').one('click', function(){
 				$('#chart').fadeIn()
 				
 				let cntcd = $('.form-calculator .amount-row .receive h3').text()
+
 				let exch_arr = []
 				$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
 					$.each(d.exlist, (i, j)=>{
@@ -59,6 +62,7 @@ exchange =(()=>{
 					})
 				
 //				let cntcd = $('.form-calculator .amount-row .receive h3').text()
+
 				$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
 					if(d.msg === 'UP'){
 						$('#exchange_check').text('최근 약 2주간 해당 환율은 상승세입니다.')
@@ -75,11 +79,13 @@ exchange =(()=>{
 				$.getScript(exChart_js)
 				$(this).click(function(){
 					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
+
 						exch.exch_krw = $('.form-calculator .amount-row input.send-amount').val() //환전할 원화 금액
 						exch.exch_cnt = $('.form-calculator .amount-row input.receive-amount').val() //환전된 외화 금액
 						exch.cntcd = $('.form-calculator .amount-row .receive h3').text()
 						exch.cemail = sessionStorage.getItem('CEMAIL')
 						exch.acctNo = sessionStorage.getItem('acctNo')
+
 						$('#auth_mgmt').each(function(){
 							$.ajax({
 								url : _+'/exchange/insert',
