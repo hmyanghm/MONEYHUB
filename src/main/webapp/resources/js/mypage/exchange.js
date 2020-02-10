@@ -17,6 +17,7 @@ exchange =(()=>{
 		nav_vue_js = js + '/vue/nav_vue.js'
 	}
 	let onCreate =()=>{
+		alert('들어왔나요 exchange????? - ')
 		init()
 		$.when(
 			$.getScript(mypage_vue_js),
@@ -39,12 +40,14 @@ exchange =(()=>{
 		//$.getScript(exChart_js)
 		
 		$('#popup-root')
-		.html(main_vue.cntcd_popup())
+		.html(mypage_vue.exch_cntcd_popup())
 		.hide()
-		$('#popup-exchange').empty()
 		
-		let cntcd = $('.form-calculator .amount-row .receive h3').text()
+//		$('#popup-exchange').empty()
+		
+		let cntcd = $('#exchange_box .amount-row .receive h3').text()
 		let exch_arr = []
+		alert('cntcd는??? '+cntcd)
 		$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
 			$.each(d.exlist, (i, j)=>{
 				exch_arr.push(parseFloat(j.exrate))
@@ -77,9 +80,9 @@ exchange =(()=>{
 				$(this).click(function(){
 					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
 
-						exch.exchKrw = $('.form-calculator .amount-row input.send-amount').val() //환전할 원화 금액
-						exch.exchCnt = $('.form-calculator .amount-row input.receive-amount').val() //환전된 외화 금액
-						exch.cntcd = $('.form-calculator .amount-row .receive h3').text()
+						exch.exchKrw = $('#exchange_box .amount-row input.send-amount').val() //환전할 원화 금액
+						exch.exchCnt = $('#exchange_box .amount-row input.receive-amount').val() //환전된 외화 금액
+						exch.cntcd = $('#exchange_box .amount-row .receive h3').text()
 						exch.cemail = cus.cemail
 						exch.exrate = exch.exrate
 						sessionStorage.setItem('exch',JSON.stringify(exch))

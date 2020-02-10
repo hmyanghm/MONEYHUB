@@ -41,9 +41,9 @@ common = (function(){
 				common.remit_send()
 			})
 		},
-		receive_value_calc : function(x){
+		receive_value_calc : function(x ,y){
 			let receive_value = common.comma_remove($('.form-calculator .amount-row input.send-amount').val()) 
-			if( receive_cntcd === 'KRW'){
+			if( y === 'KRW'){
 				receive_value = receive_value * exrate //* 0.985
 			}
 			else{

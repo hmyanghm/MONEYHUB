@@ -71,17 +71,18 @@ mypage =(()=>{
 		
 		$('#remit_btn')
 		.click(function(){
-
-		$("#remit_slider").toggle();
+		$("#remit_slider").show();
 			var top = $('#remit_slider').offset().top - 75;
 			$('html').scrollTop(top);
+			$('#exchange_slider').hide()
 		})
 		
 		$('#exchange_btn')
 		.click(function(){
-		$("#exchange_slider").toggle();
-			var top = $('#exchange_slider').offset().top - 75;
-			$('html').scrollTop(top);
+		$("#exchange_slider").show();
+			var top = $('#exchange_slider').offset().top - 75
+			$('html').scrollTop(top)
+			$('#remit_slider').hide()
 			exchange.onCreate()
 		})
 	}
@@ -179,7 +180,7 @@ mypage =(()=>{
 				$.each(d.exlist.reverse(), (i, j)=>{
 						exrate_arr.push(parseFloat(j.exrate))
 				})
-				deal.exrate = exrate_arr[0]
+				deal.exrate = exrate_arr[exrate_arr.length-1]
 				sessionStorage.setItem('deal',JSON.stringify(deal))
 			})
 			

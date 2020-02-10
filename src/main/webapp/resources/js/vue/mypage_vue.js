@@ -173,7 +173,7 @@ mypage_vue = {
 			            <ol>
 			                <li>
 			                    <p>현재잔액</p>
-			                    <p class="fs-block" id="balance" style="color:black; font-weight:bold;">${acc.balance}</p>
+			                    <p class="fs-block" id="balance" style="color:black; font-weight:bold;" >${common.comma_create(acc.balance)}</p>
 			                    <p class="fs-block">&nbsp;</p>
 			                    <p class="fs-block" style="color:black; font-weight:bold;">원</p>
 			                </li>
@@ -565,7 +565,7 @@ mypage_vue = {
 					</div>
 				</div>`
 	},
-	cntcd_popup : ()=>{
+	exch_cntcd_popup : ()=>{
 		return `<div class="moin-popup">
 					<div class="themoin-unit-select-popup" tabindex="-1">
 						<div class="unit-content">
@@ -574,10 +574,10 @@ mypage_vue = {
 								          https://img.themoin.com/public/img/btn-close@2x.png 2x,
 								          https://img.themoin.com/public/img/btn-close@3x.png 3x">
 			      			</a>
-			      			<h3>송금 국가 선택</h3>
+			      			<h3>환전할 통화 선택</h3>
 			      			<div id="popup_box">
 			      				<form onsubmit="return false">
-			      					<input type="text" placeholder="송금국가를 선택해주세요.">
+			      					<input type="text" placeholder="환전할 통화를 선택해주세요.">
 			      					<button>입력</button>
 			      				</form>
 			      				<ul>

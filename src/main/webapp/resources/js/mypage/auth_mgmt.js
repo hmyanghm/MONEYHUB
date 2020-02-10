@@ -33,7 +33,7 @@ auth_mgmt =(()=>{
         let exch = $.exch()
         let exchKrw = exch.exchKrw
         let bsdate = exch.bsdate
-		
+        
 		$('#copy_btn').on('click', function(e){
 			var text = $('#account').html()
 			$('#clip_target').val(text)

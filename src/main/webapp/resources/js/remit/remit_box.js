@@ -155,6 +155,7 @@ remit_box =(()=>{
 
 				}
 				else if( j.flag === 'exchange2'){
+					alert('')
 					$('.form-calculator .amount-row .receive p').text(`${j.curr.substring(0, j.curr.indexOf(' '))}`)
 					$('.form-calculator .amount-row .receive h3').text(`${j.cntcd}`)
 					sessionStorage.setItem('exch',JSON.stringify(exch))

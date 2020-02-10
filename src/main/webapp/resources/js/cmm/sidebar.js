@@ -88,8 +88,8 @@ sidebar = (()=>{
 		.append(`<div class="spacer"></div> 
 				<img src="https://img.themoin.com/public/img/img-man-s.svg">
 				<p id="mypageId"></p>`)
-		/*
-		$('#cus_info')
+		
+		/*$('#cus_info')
 		.click(function(){
 			var tab_id = $(this).attr('data-tab')
 			$(this).addClass('active')

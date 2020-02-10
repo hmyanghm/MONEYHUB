@@ -242,7 +242,13 @@ main_vue ={
 			<div id="chart" style="display: none;"><canvas id="canvas" style="width:200px; height:50px; margin-bottom: 10px"></canvas></div>
 				<div class="check_font" id="exchange_check" ></div>
 					<div class="moin-amount">
-						<div id="remit_box" class="form-calculator main">
+						<div id="exchange_box" class="form-calculator main">
+						<div class="amount-row"> 
+								<div class="unit-select receive" style="display:-webkit-inline-box;border-width:inherit;max-width:none;align-self: center;">
+									<img src="https://img.themoin.com/public/img/circle-flag-us.svg">
+									<p style="font-size: 19px;margin: 8px 10px 0px 20px;">미국</p><h3 style="margin: 8px 0px 0px 0px;">USD</h3>
+								</div>
+							</div>
 							<div class="amount-row">
 								<div class="">
 									<p>환전 금액</p>
