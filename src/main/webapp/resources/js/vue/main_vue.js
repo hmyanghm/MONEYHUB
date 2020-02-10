@@ -21,21 +21,23 @@ main_vue ={
         </div>
 		<div class="themoin-remit-component"> 
 			<div id="moin-event-amount" class="moin-event-amount"> 
-			<h1>머니허브 기능 이용하기</span> 
 				<p class="color-deepgrey"></p> 
 			</div>
 			<div class="steps" style="max-width: 1365px; text-align: center; "> 
 					<div id="idx_exchg_btn" class="threesteps">
 					<img src="/web/resources/img/main/exchange.png" style="width: 300px;">
-					<h3>환전</h3>
+					<br><br>
+					<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">환전</h2>
 					</div>
 					<div id="idx_remit_btn" class="threesteps">
 					<img src="/web/resources/img/main/remit.png" style="width: 300px">
-					<h3>wu 해외송금</h3>
+					<br><br>
+					<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">wu 해외송금</h2>
 					</div>
 					<div id="idx_testexchg_btn" class="threesteps">
 					<img src="/web/resources/img/main/testexchange.png" style="width: 300px">
-					<h3>모의 환전</h3>
+					<br><br>
+					<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">모의 환전</h2>
 					</div>
 					</div>
 			</div> 
@@ -209,24 +211,61 @@ main_vue ={
 			</div> 
 				<div class="themoin-remit-component"> 
 						<div id="moin-event-amount" class="moin-event-amount"> 
-						<h1>머니허브 기능 이용하기</span> 
 							<p class="color-deepgrey"></p> 
 						</div>
 						<div class="steps" style="max-width: 1365px; text-align: center; "> 
 									<div id="exchange_btn" class="threesteps">
 									<img src="/web/resources/img/main/exchange.png" style="width: 300px;">
-									<h3>환전</h3>
+									<br><br>
+									<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">환전</h2>
 								</div>
 								<div id="remit_btn" class="threesteps">
 									<img src="/web/resources/img/main/remit.png" style="width: 300px">
-									<h3>wu 해외송금</h3>
+									<br><br>
+									<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">wu 해외송금</h2>
 								</div>
 								<div class="threesteps">
 									<img src="/web/resources/img/main/testexchange.png" style="width: 300px">
-									<h3>모의 환전</h3>
+									<br><br>
+									<h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">모의 환전</h2>
 								</div>
 						</div>
 				</div> 
+							
+					<div class="themoin-remit-component" id="exchange_slider" style="display:none;">
+					<div id="moin-event-amount" class="moin-event-amount">
+					<h1>지금 바로 머니허브 환전을 이용해보세요</span>
+						<p class="color-deepgrey"></p>
+					</div>
+			<div id="chart" style="display: none;"><canvas id="canvas" style="width:200px; height:50px; margin-bottom: 10px"></canvas></div>
+				<div class="check_font" id="exchange_check" ></div>
+					<div class="moin-amount">
+						<div id="remit_box" class="form-calculator main">
+							<div class="amount-row">
+								<div class="">
+									<p>환전 금액</p>
+									<input class="send-amount" id="exchange_amount"  type="text" tabindex="0" placeholder="0.00">
+								</div>
+								<div class="unit-select disabled" tabindex="0" >
+									<p>대한민국</p>
+									<h3>KRW</h3>
+								</div>
+							</div>
+							<div class="amount-row">
+								<div class="">
+									<p>예상 비용</p>
+									<input class="receive-amount" id="expect" type="text" tabindex="0" placeholder="0.00" readonly="">
+								</div>
+								<div class="unit-select receive" tabindex="0">
+									<p>미국</p>
+									<h3>USD</h3>
+								</div>
+							</div>
+							<button id="exchangebutton" class="index-send-btn moin-body">환전하기</button>
+						</div>
+					</div>
+				</div>
+			
 			<div class="themoin-remit-component" id="remit_slider" style="display:none;"> 
 					<div id="moin-event-amount" class="moin-event-amount"> 
 						<h1>지금 바로 WU 송금을 이용해보세요</span> 

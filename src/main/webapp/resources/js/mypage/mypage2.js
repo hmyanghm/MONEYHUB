@@ -1,5 +1,5 @@
 "use strict"
-var mypage = mypage || {}
+var ex = mypage || {}
 
 mypage =(()=>{
 	const WHEN_ERR = 'js파일을 찾지 못했습니다.'
@@ -45,7 +45,6 @@ mypage =(()=>{
 			remit_receive()
 			setInterval(clock_excute, 1000)
 			setInterval(exchange_API, 1000 * 60 * 60 * 12) // 1000 * 60 : 1분, 
-			remit_box.onCreate({ flag : 'mypage', cntcd : '' })
 			remit_list({ nowPage : 0})
 		})
 		.fail(()=>{
@@ -75,14 +74,127 @@ mypage =(()=>{
 		})
 		
 		$('#exchange_btn')
-		.click(function(){
-		$("#exchange_slider").toggle();
-			var top = $('#exchange_slider').offset().top - 75;
-			$('html').scrollTop(top);
-			exchange.onCreate()
+		.click(()=>{
+			alert('클릭')
+			$('#exchange_slider').toggle()
+			var top = $('#exchange_slider').offset().top - 75
+			$('html').scrollTop(top)
+			.removeClass('index-send-btn moin-body')
 		})
 		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+		$('#popup-root')
+		.html(main_vue.cntcd_popup())
+		.hide()
+		$('#popup-exchange').empty()
 		
+		let cntcd = $('.form-calculator .amount-row .receive h3').text()
+		let exch_arr = []
+		$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
+			$.each(d.exlist, (i, j)=>{
+				exch_arr.push(parseFloat(j.exrate))
+			})
+			exch.exrate = exch_arr[0]
+			sessionStorage.setItem('exch',JSON.stringify(exch))
+		})
+		$('.form-calculator .amount-row input.send-amount').keyup(()=>{
+					common.receive_value_calc(exch.exrate)
+		})
+				
+		$(function(){
+			$('#exchangebutton').one('click', function(){
+				$('#chart').fadeIn()
+				$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
+					if(d.msg === 'UP'){
+						$('#exchange_check').text('최근 약 2주간 해당 환율은 상승세입니다.')
+						$('#exchange_check').css('color', 'blue')
+						$('#exchange_check').css('text-align', 'center')
+						$('#exchange_check').css('font-weight', 'bold')
+					}else{
+						$('#exchange_check').text('최근 약 2주간 해당 환율은 하락세입니다.')
+						$('#exchange_check').css('color', 'red')
+						$('#exchange_check').css('text-align', 'center')
+						$('#exchange_check').css('font-weight', 'bold')
+					}
+				})
+				$.getScript(exChart_js)
+				$(this).click(function(){
+					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
+						sessionStorage.getItem('cus')
+						sessionStorage.getItem('acc')
+						exch.exchKrw = $('.form-calculator .amount-row input.send-amount').val() //환전할 원화 금액
+						exch.exchCnt = $('.form-calculator .amount-row input.receive-amount').val() //환전된 외화 금액
+						exch.cntcd = $('.form-calculator .amount-row .receive h3').text()
+						exch.cemail = cus.cemail
+						exch.exrate = exch.exrate
+						sessionStorage.setItem('exch',JSON.stringify(exch))
+						$('#auth_mgmt').each(function(){
+							$.ajax({
+								url : _+'/exchange/insert',
+								type : 'POST',
+								data: JSON.stringify(exch),
+								dataType : 'json',
+								contentType : 'application/json',
+								success : d=>{
+									if(d.msg === 'SUCCESS'){
+										alert('머니허브 계좌로 이동합니다.')
+										$.ajax({
+											url : _ + '/exchange/balanceChg',
+											type : 'POST',
+											data : JSON.stringify({
+												cemail : cus.cemail,
+												exch : JSON.stringify(exch),
+												acc : JSON.stringify(acc)
+											}),
+											dataType : 'json',
+											contentType : 'application/json',
+											success : d=>{
+												if(d.msg === 'SUCCESS'){
+													alert('회원 정보가 수정되었습니다.')
+												}else if(d.msg === 'FAIL'){
+													alert('잔액이 부족합니다. 잔액를 확인해주세요.')
+												}
+												
+											},
+											error : e=>{
+												alert('cus_info_chg ajax 실패')  
+											}
+										})
+										
+										var tab_id = $(this).attr('data-tab')
+										$(this).addClass('active')
+										$("#"+tab_id).addClass('active')
+										$('#cus_info').removeClass('active')
+										$('#pwd_chg').removeClass('active')
+										$('#alarm').removeClass('active')
+										$('#ref_mgmt').removeClass('active')
+										$('#withdrawal').removeClass('active')
+										$('#exchange_test').removeClass('active')
+										$('#exchange').removeClass('active')
+										auth_mgmt.onCreate()
+									}else{
+										alert('고객님 계좌를 확인해주세요.')
+										var tab_id = $(this).attr('data-tab')
+										$(this).addClass('active')
+										$("#"+tab_id).addClass('active')
+										$('#cus_info').removeClass('active')
+										$('#pwd_chg').removeClass('active')
+										$('#alarm').removeClass('active')
+										$('#ref_mgmt').removeClass('active')
+										$('#withdrawal').removeClass('active')
+										$('#exchange_test').removeClass('active')
+										$('#exchange').removeClass('active')
+										auth_mgmt.onCreate()
+									}
+								}
+							})
+						
+						})
+					}
+				})
+			})
+		})
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
 	}
 
 	let page_move =()=>{
@@ -306,103 +418,6 @@ mypage =(()=>{
 
 		})
 	}
-	
-//	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	$(function(){
-//		$('#exchangebutton').one('click', function(){
-//			alert('짜잔')
-//			$('#chart').fadeIn()
-//			$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
-//				if(d.msg === 'UP'){
-//					$('#exchange_check').text('최근 약 2주간 해당 환율은 상승세입니다.')
-//					$('#exchange_check').css('color', 'blue')
-//					$('#exchange_check').css('text-align', 'center')
-//					$('#exchange_check').css('font-weight', 'bold')
-//				}else{
-//					$('#exchange_check').text('최근 약 2주간 해당 환율은 하락세입니다.')
-//					$('#exchange_check').css('color', 'red')
-//					$('#exchange_check').css('text-align', 'center')
-//					$('#exchange_check').css('font-weight', 'bold')
-//				}
-//			})
-//			$.getScript(exChart_js)
-//			$(this).click(function(){
-//				if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
-//					sessionStorage.getItem('cus')
-//					sessionStorage.getItem('acc')
-//					exch.exchKrw = $('.form-calculator .amount-row input.send-amount').val() //환전할 원화 금액
-//					exch.exchCnt = $('.form-calculator .amount-row input.receive-amount').val() //환전된 외화 금액
-//					exch.cntcd = $('.form-calculator .amount-row .receive h3').text()
-//					exch.cemail = cus.cemail
-//					exch.exrate = exch.exrate
-//					sessionStorage.setItem('exch',JSON.stringify(exch))
-//					$('#auth_mgmt').each(function(){
-//						$.ajax({
-//							url : _+'/exchange/insert',
-//							type : 'POST',
-//							data: JSON.stringify(exch),
-//							dataType : 'json',
-//							contentType : 'application/json',
-//							success : d=>{
-//								if(d.msg === 'SUCCESS'){
-//									alert('머니허브 계좌로 이동합니다.')
-//									$.ajax({
-//										url : _ + '/exchange/balanceChg',
-//										type : 'POST',
-//										data : JSON.stringify({
-//											cemail : cus.cemail,
-//											exch : JSON.stringify(exch),
-//											acc : JSON.stringify(acc)
-//										}),
-//										dataType : 'json',
-//										contentType : 'application/json',
-//										success : d=>{
-//											if(d.msg === 'SUCCESS'){
-//												alert('회원 정보가 수정되었습니다.')
-//											}else if(d.msg === 'FAIL'){
-//												alert('잔액이 부족합니다. 잔액를 확인해주세요.')
-//											}
-//											
-//										},
-//										error : e=>{
-//											alert('cus_info_chg ajax 실패')  
-//										}
-//									})
-//									
-//									var tab_id = $(this).attr('data-tab')
-//									$(this).addClass('active')
-//									$("#"+tab_id).addClass('active')
-//									$('#cus_info').removeClass('active')
-//									$('#pwd_chg').removeClass('active')
-//									$('#alarm').removeClass('active')
-//									$('#ref_mgmt').removeClass('active')
-//									$('#withdrawal').removeClass('active')
-//									$('#exchange_test').removeClass('active')
-//									$('#exchange').removeClass('active')
-//									auth_mgmt.onCreate()
-//								}else{
-//									alert('고객님 계좌를 확인해주세요.')
-//									var tab_id = $(this).attr('data-tab')
-//									$(this).addClass('active')
-//									$("#"+tab_id).addClass('active')
-//									$('#cus_info').removeClass('active')
-//									$('#pwd_chg').removeClass('active')
-//									$('#alarm').removeClass('active')
-//									$('#ref_mgmt').removeClass('active')
-//									$('#withdrawal').removeClass('active')
-//									$('#exchange_test').removeClass('active')
-//									$('#exchange').removeClass('active')
-//									auth_mgmt.onCreate()
-//								}
-//							}
-//						})
-//					
-//					})
-//				}
-//			})
-//		})
-//	})
-//	/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	return { onCreate }
 })()
