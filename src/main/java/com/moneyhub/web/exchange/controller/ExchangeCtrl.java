@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.moneyhub.web.cus.domains.Account;
 import com.moneyhub.web.exchange.domains.Exchange;
 import com.moneyhub.web.exchange.mappers.ExchangeMapper;
@@ -23,6 +22,7 @@ import com.moneyhub.web.pxy.Proxy;
 @RestController
 @RequestMapping("/exchange")
 public class ExchangeCtrl extends Proxy {
+
 
 	@Autowired Exchange ex;
 	@Autowired ExchangeMapper exMapper;
@@ -37,6 +37,7 @@ public class ExchangeCtrl extends Proxy {
 		box.clear();
 		box.put("msg", "SUCCESS");
 		return box.get();
+
 	}
 	
 	@GetMapping("/extrend/cntcd/{cntcd}")
@@ -44,6 +45,7 @@ public class ExchangeCtrl extends Proxy {
 		return exService.ExTrend(cntcd);
 	}
 	
+
 	@PostMapping("/balanceChg")
 	public Map<?, ?> balanceChg(@RequestBody HashMap<String, Object> exchange){
 		System.out.println("계좌 현재 잔액 변경 들어옴 여기서 exchange는? - " + exchange);
@@ -58,7 +60,6 @@ public class ExchangeCtrl extends Proxy {
 		System.out.println("잔액 변경하는 자바 부분에서 box.get() -> " + box.get());
 		return box.get();
 	}
-	
 	
 	
 	

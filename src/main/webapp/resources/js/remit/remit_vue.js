@@ -2,16 +2,24 @@ var remit_vue = remit_vue || {}
 remit_vue = {
 	remit_first: () => {
 		deal = $.deal()
-		return `<div class="themoin-remit-extended-component"> 
+		cntimg = sessionStorage.getItem('cntimg')
+		return `<div class="themoin-remit-extended-component" style="margin-top: 50px;min-height:unset;"> 
 						<h2 class="title-amount">보내는 금액을 확인해주세요.</h2> 
 						<div id="moin-event-amount" class="moin-event-amount" style="text-align: center;"> 
 							<p class="color-deepgrey"></p> 
 						</div> 
-						<div class="form-calculator"> 
+						<div id="remit_box" class="form-calculator"> 
+							<div class="amount-row"> 
+								<div class="unit-select receive" style="display:-webkit-inline-box;border-width:inherit;max-width:none;align-self: center;">
+									<img src="${cntimg}">
+									<p style="font-size: 19px;margin: 8px 10px 0px 20px;">${deal.cntp}</p><h3 style="margin: 8px 0px 0px 0px;">${deal.cntcd}</h3>
+								</div>
+							</div> 
 							<div class="amount-row"> 
 								<div class=""> 
 									<p>송금 금액</p> 
-									<input class="send-amount" id="sd_amount" type="text" tabindex="0" placeholder="0.00" value="${deal.trdusd.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}"> 
+									<input class="send-amount" type="text" tabindex="0" placeholder="0.00" value="${common.comma_create(deal.trdusd)}" numberOnly maxlength="4" style="width: 35%;"> 
+									<p id="max_amount" style="color:cornflowerblue;"></p>
 								</div> 
 								<div class="unit-select disabled" tabindex="0.00"> 
 									<p>미화</p><h3>USD</h3> 
@@ -19,19 +27,21 @@ remit_vue = {
 							</div> 
 							<div class="description"> 
 								<i class="empty"></i> 
-								<p><span id="fee_check" >$</span> USD (수수료)</p>
 								<div class="spacer"></div> 
-								<p>3,000$ 이상은 12$</p>
+								<p><span id="fee_check" style="font-size: initial; color:darkgray;"></span> USD (수수료)</p>
+								<div class="spacer"></div> 
 							</div> 
 							<div class="description"> 
 								<i class="empty"></i> 
-								<p><span>541,750</span> JPY (수취 예상 금액)</p> 
+									<div class="spacer"></div> 
+								<p><span style="font-size: initial; color:darkgray;">541,750</span> ${deal.cntcd} (받는이 예상 금액)</p> 
 								<div class="spacer"></div> 
-								<p>실시간 환율로 예상한 금액</p>
 							</div> 
 								<div class="description last"> 
 									<i><img src="https://img.themoin.com/public/img/exchange-rate.svg"></i> 
-									<p><span>1</span>USD = <span>${deal.exrate}</span>KRW (실시간 환율)</p> 
+									<div class="spacer"></div> 
+									<p><span>1</span>USD = <span style="font-size: initial; color:darkgray;">${deal.exrate}</span>KRW (실시간 환율)</p> 
+									<div class="spacer"></div> 
 								</div> 
 								<div class="amount-row"> 
 									<div class=""> 
@@ -73,7 +83,7 @@ remit_vue = {
 									<div></div>
 								</div>
 								<div class="step-item">
-									<p>정보 확인</p>
+									<p>송금 신청</p>
 									<div>
 										<div></div>
 									</div>
@@ -82,8 +92,6 @@ remit_vue = {
 							<h2>보내는 분</h2>
 							<div class="themoin-section isOpen">
 								<h2 class="section-title">보내는 분의 정보를 확인해 주세요.</h2>
-								<p class="section-description">기입한 이메일로 송금 관련 알림이 발송됩니다.<br> 중요한 안내를 받지 못하는 일이 없도록 정확히 입력해주세요.</p>
-								<button class="toggle open"></button>
 								<div class="themoin-profile-section">
 									<form action="/a/v1/member/update" method="post">
 										<div class="form-row col-2">
@@ -102,9 +110,6 @@ remit_vue = {
 													<input class="fs-block" placeholder="12345" type="text" tabindex="0" value="${cus.zip}">
 												</div>
 												<p class="moin-error"></p>
-											</div>
-											<div class="postcode">
-												<button class="btn-zipcode" tabindex="0" type="button">주소 변경</button>
 											</div>
 										</div>
 										<div class="form-row">
@@ -127,14 +132,6 @@ remit_vue = {
 										</div>
 										<div class="form-row col-2">
 											<div class="themoin-composite-input  phone2">
-												
-												
-												<div class="extra-controls">
-													<button>이메일 인증</button>
-												</div>
-												
-												
-												
 												<div class="moin-input">
 													<label style="color: rgb(116, 127, 155);">이메일 번호 </label>
 													<input class="fs-block" placeholder="현재 이메일 주소를 입력해주세요." type="text" tabindex="0" maxlength="11" value="${cus.cemail}">
@@ -183,7 +180,7 @@ remit_vue = {
 							<div></div>
 						</div>
 						<div class="step-item">
-							<p>정보 확인</p>
+							<p>송금 신청</p>
 							<div>
 								<div></div>
 							</div>
@@ -192,7 +189,6 @@ remit_vue = {
 					<h2>받는 분 (Recipient)</h2>
 					<div class="themoin-section isOpen">
 						<h2 class="section-title">받는 분의 정보를 입력해주세요.</h2>
-						<button class="toggle open"></button>
 						<form class="themoin-recipient-field-section">
 							<div class="form-row col-2">
 								<div>
@@ -243,7 +239,7 @@ remit_vue = {
 		},
 		remit_review: ()=>{
 			deal = $.deal()
-			return `<div class="themoin-remit-step-form">
+			return `<div class="themoin-remit-step-form" style="min-height:unset;">
 						<div class="header-progress">
 							<div class="step-item active">
 								<p>보내는 분 정보</p>
@@ -265,13 +261,13 @@ remit_vue = {
 								<div></div>
 							</div>
 							<div class="step-item current">
-								<p>정보 확인</p>
+								<p>송금 신청</p>
 								<div>
 									<div></div>
 								</div>
 							</div>
 						</div>
-						<h2>입력하신 정보가 맞나요?</h2>
+						<h2 style="margin: 0px 0 6px;">입력하신 정보가 맞나요?</h2>
 						<div class="themoin-section borderless isOpen">
 							<h2 class="section-title"></h2>
 							<div class="themoin-review-section">
@@ -282,11 +278,11 @@ remit_vue = {
 									<p>보내는 금액</p>
 								<div>
 									<div class="amount">
-										<p >${deal.trdkrw.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<span class="unit">KRW</span></p><p>총 수수료 : ${deal.fee} KRW</p>
+										<p >${common.comma_create(deal.trdkrw)}<span class="unit">KRW</span></p><p>총 수수료 : ${deal.fee} USD</p>
 									</div>
 									<img src="https://img.themoin.com/public/img/ic-next-p.png" class="user-sendlist-ic">
 									<div class="amount receive">
-										<p >${deal.trdusd.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<span class="unit">USD</span></p><p>적용 환율 : 1 USD = ${deal.exrate} KRW</p>
+										<p >${common.comma_create(deal.trdusd)}<span class="unit">USD</span></p><p>적용 환율 : 1 USD = ${deal.exrate} KRW</p>
 									</div>
 								</div>
 							</div>
@@ -357,38 +353,43 @@ remit_vue = {
 					</div>
 					<p class="warning-text">입금 후 취소가 불가능합니다. 신중하게 송금 신청해주세요!</p>
 					<div class="submit-controls">
-						<button id="complete_remit_btn">송금신청하기</button>
+						<button id="complete_remit_btn">송금 신청하기</button>
 					</div>
-					<div style="height: 80px;"></div>
-				</div>
 				<div style="display:none"></div>
 			</div>`
 		},
 		remit_complete:()=>{
+			cus = $.cusInfo()
 			deal = $.deal()
 			return `<div class="themoin-remit-success">
 						<div>
 							<img src="https://img.themoin.com/public/img/img-success.svg">
 							<h1 id="deposit_hour" type="text">입금 기한 60:00</h1>
 							<div class="intro">머니허브 해외송금을 이용해주셔서 감사합니다.<br>
-								<p><span>2019년 12월 30일 오후 3:38까지</span> 계좌로 입금해주세요.</p>
+								<p><span id="remit_clock">2019년 12월 30일 오후 3:38까지</span> 계좌로 입금해주세요.</p>
 								<p class="fs-block">반드시, <span>신한은행 110341213905 이은지 계좌</span>에서 출금해주셔야 합니다.</p>
 								진행 상황은 메인화면의 송금 내역에서 확인하실 수 있습니다.<br>
 							</div>
 							<div class="box">
-								<div class="remit_info">
+								<div class="remit_info" >
 									<div>
 										<p class="info_desc">입금할 금액</p>
-										<p class="copy_text">${deal.trdkrw.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} KRW</p>
+										<p class="copy_text" id="copy_amt" style="float:left">${common.comma_create(deal.trdkrw)}</p>
+										<p class="copy_text"> &nbsp;&nbsp; KRW</p>
 									</div>
-									<button>금액 복사하기</button>
+									<button id="copy_btn">금액 복사하기</button>
+									<input id="clip_target" type="text" value="" style="position:absolute;top:-9999em;"/>
 								</div>
 								<div class="remit_info">
 									<div>
 										<p class="info_desc">입금할 가상 계좌</p>
-										<p class="copy_text">광주은행 9427010256943 이은지_머니허브</p>
+										<p class="copy_text" style="float:left">국민은행&nbsp;&nbsp;</p>
+										<p class="copy_text" id="copy_acc">9427010256943</p>
+										<p class="copy_text">&nbsp;&nbsp;${cus.cname}</p>
+										<p class="copy_text">_머니허브</p>
 									</div>
-									<button>계좌 복사하기</button>
+									<button id="copy_acc_btn">계좌 복사하기</button>
+									<input id="clip_acc" type="text" value="" style="position:absolute;top:-9999em;"/>
 								</div>
 								<p class="warning">반드시 ‘인증받은 계좌’로 한번에 금액을 입금해주세요. 여러번 송금할 시에도 각각 따로 보내주셔야 합니다.</p>
 							</div>

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moneyhub.web.cus.domains.Account;
@@ -75,11 +74,9 @@ public class CustomerCtrl extends Proxy {
 
 	@GetMapping("/existid/{cemail}/")
 	public Map<?, ?> existId(@PathVariable String cemail) {
-		System.out.println("existid 들어옴");
 		Function<String, Integer> f = o -> cusMapper.existId(o);
 		box.clear();
 		box.put("msg", (f.apply(cemail) != 0) ? "Y" : "N");
-		System.out.println(box.get());
 		return box.get();
 	}
 	
@@ -168,14 +165,23 @@ public class CustomerCtrl extends Proxy {
 	}
 
 	@GetMapping("/getAcc/{cemail}/{cno}")
-    public Map<? ,?> getAcc(@PathVariable HashMap<String,Object> map){
-	    box.clear();
-	    System.out.println("=============================계좌번호  조회 들어옴1!!!!!" +map);
-	    Function<String, Account> f = t -> accMapper.getAcc(t);
-	    box.put("msg","SUCCESS");
-	    box.put("acc", f.apply(map.get("cemail").toString()));
-	    System.out.println("box.get() -----------> "+box.get().toString());
-	    return box.get();
-    }
+	public Map<? ,?> getAcc(@PathVariable HashMap<String,Object> map){
+		  box.clear();
+		  System.out.println("=============================계좌번호 조회 들어옴1!!!!!" +map); 
+		  Function<String, Account> f = t -> accMapper.getAcc(t);
+		  box.put("msg","SUCCESS"); 
+		  box.put("acc", f.apply(map.get("cemail").toString())); 
+		  System.out.println("box.get() -----------> "+box.get());
+		 
+		return box.get();
+	}
+
+	
+	@PostMapping("/acc/update")
+	public void updateAcc(@RequestBody HashMap<String, Object> deal) {
+		//EJ 계좌 히스토리
+		//계좌 히스토리 테이블 생성 및 인설트 완성 후 업데이트
+	}
+	
 	
 }

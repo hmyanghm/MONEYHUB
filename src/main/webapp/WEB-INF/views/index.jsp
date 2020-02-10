@@ -32,8 +32,8 @@
 	<link href="https://www.kakaobank.com/products_static/css/event/list/style.css" rel="stylesheet" type="text/css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!-- 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!-- 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 <!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 	
 	<!-- maps -->
@@ -77,12 +77,9 @@
 	<script src="<%=application.getContextPath()%>/resources/js/vue/event_vue.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/cmm/faq.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/vue/faq_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/guide_recieve.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/guide_vue.js"></script>
 	
 	<script src="<%=application.getContextPath()%>/resources/js/remit/foreignRemit.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/remit/remit_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/remit/remit_dropdown.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/remit/remit_box.js"></script>
 	
 	<script src="<%=application.getContextPath()%>/resources/js/mypage/cus_info.js"></script>
@@ -120,7 +117,6 @@
 	<div id="popup-exchange"></div>
 	<script>
 		app.run('<%=application.getContextPath()%>')
-// test.onCreate()
 	</script>
 </body>
 </html>

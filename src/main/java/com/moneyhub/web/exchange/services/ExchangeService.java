@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
-
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.moneyhub.web.cus.domains.Account;
 import com.moneyhub.web.cus.domains.Customer;
 import com.moneyhub.web.cus.mappers.AccountMapper;
