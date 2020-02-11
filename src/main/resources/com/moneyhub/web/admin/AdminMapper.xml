@@ -31,11 +31,11 @@
 	</select>-->
 		
 	<select id="memberPieChartCount" parameterType="string" resultType="string">
-		SELECT COUNT(AGE) FROM CUSTOMER
+		<!-- SELECT COUNT(AGE) FROM CUSTOMER
 		WHERE 
 		<![CDATA[
 			AGE < #{value} AND #{value}-10 < AGE
-		]]>
+		]]> -->
 	</select>
 	
 	<select id="feeDBChart" resultType="string">
@@ -73,7 +73,7 @@
 	
 	<select id="memberList" resultType="map">
 		<![CDATA[
-		SELECT CNO, CEMAIL, CNAME, CPWD , AGE, DATE_FORMAT(SDATE, "%Y/%m/%d") AS SDATE, CSTCD 
+		SELECT CNO, CEMAIL, CNAME, CPWD , DATE_FORMAT(SDATE, "%Y/%m/%d") AS SDATE, CSTCD 
 		FROM CUSTOMER
 		]]>
 	</select>

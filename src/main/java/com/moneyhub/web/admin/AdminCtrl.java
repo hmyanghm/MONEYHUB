@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.moneyhub.web.cus.util.CustomerSha256;
 import com.moneyhub.web.pxy.Box;
 import com.moneyhub.web.pxy.Proxy;
 
@@ -46,6 +48,7 @@ public class AdminCtrl extends Proxy{
 	
 	@PostMapping("/memberUpdate")
 	public Map<?, ?> memberListUpdate(@RequestBody Admin param){
+		param.setCpwd(CustomerSha256.encrypt(param.getCpwd()));
 		Consumer<Admin> c = o -> adminMapper.memberUpdate(o);
 		c.accept(param);
 		box.clear();
