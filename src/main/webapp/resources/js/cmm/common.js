@@ -41,13 +41,15 @@ common = (function(){
 				common.remit_send()
 			})
 		},
-		receive_value_calc : function(x ,y){
+		receive_value_calc : function(x){
 			let receive_value = common.comma_remove($('.form-calculator .amount-row input.send-amount').val()) 
-			if( y === 'KRW'){
-				receive_value = receive_value * exrate //* 0.985
+			
+			if( $('.form-calculator .amount-row input.send-amount h3').text() === 'KRW'){
+				receive_value = receive_value * x //* 0.985
 			}
 			else{
-				receive_value = receive_value / exrate //* 0.985
+				alert('exrate : ' + x + ', receive_value : ' + receive_value)
+				receive_value = receive_value / x //* 0.985
 			}
 //			200210 수정 hm
 //			let receive_value = common.comma_remove($('.form-calculator .amount-row input.send-amount').val()) 

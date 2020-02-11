@@ -6,9 +6,9 @@
 <mapper namespace="com.moneyhub.web.exchange.mappers.ExchangeMapper">
 
 	<insert id="insertEx" parameterType="Exchange">
-	    INSERT INTO EXCHANGE (CEMAIL, BSDATE, MH_RATE, EXCH_KRW, EXCH_CNT,
+	    INSERT INTO EXCHANGE (CEMAIL, BSDATE, EXRATE, MH_RATE, EXCH_KRW, EXCH_CNT,
 					EX_FEE, ACCT_NO, CNTCD, FEE_EXRATE, MTCN, TRD_STAT_CD, CHNG_CAUS_CD)
-		VALUES (#{cemail}, now(), #{mhRate}, #{exchKrw}, #{exchCnt},
+		VALUES (#{cemail}, now(), #{exrate}, #{mhRate}, #{exchKrw}, #{exchCnt},
 	    	#{exFee}, #{acctNo}, #{cntcd}, #{feeExrate}, #{mtcn}, #{trdStatCd}, #{chngCausCd})
 	</insert>
 	

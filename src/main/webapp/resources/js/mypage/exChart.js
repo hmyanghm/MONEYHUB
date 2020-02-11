@@ -68,17 +68,21 @@ $(document).ready(function(){
 	};
 	let ctx = document.getElementById('canvas').getContext('2d');
 	
-	let cntcd = $('.form-calculator .amount-row .receive h3').text()
+	let cntcd = $('#exch_box .amount-row .receive h3').text()
 	$.getJSON( '/web/exrate/search/cntcd/' + cntcd, d=>{	
 		$.each(d.exlist.reverse(), (i, j)=>{
 			config.data.labels.push(j.bdate.substr(-2))
 			config.data.datasets[0].data.push(parseFloat(j.exrate))
+			
 		})
+		exch.exrate = config.data.datasets[0].data[config.data.datasets[0].data.length -1]
+		sessionStorage.setItem('exch',JSON.stringify(exch))
+						
 		config.options.title.text = `머니허브환율 1 ${cntcd} = ${config.data.datasets[0].data[config.data.datasets[0].data.length -1]} KRW`
 
 		//		수수료 1.5%
 		receive_value_calc()
-		$('.form-calculator .amount-row input.send-amount').keyup(()=>{
+		$('#exch_box .amount-row input.send-amount').keyup(()=>{
 			receive_value_calc()
 		})
 		
@@ -86,9 +90,9 @@ $(document).ready(function(){
 	})
 	
 	let receive_value_calc =()=>{
-		let receive_value = $('.form-calculator .amount-row input.send-amount').val().replace(/,/gi, '') 
-							/ config.data.datasets[0].data[config.data.datasets[0].data.length -1] * 0.985
-		$('.form-calculator .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2)))
+		let receive_value = $('#exch_box .amount-row input.send-amount').val().replace(/,/gi, '') 
+							/ config.data.datasets[0].data[config.data.datasets[0].data.length -1] 
+		$('#exch_box .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2)))
 	}
 	
 	let comma_create =x=>{

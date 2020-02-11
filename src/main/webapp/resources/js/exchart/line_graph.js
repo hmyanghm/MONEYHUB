@@ -115,7 +115,7 @@ $(document).ready(function(){
 			})
 		})
 	}else{
-		let cntcd = $('.form-calculator .amount-row .receive h3').text()
+		
 		$.getJSON( '/web/exrate/search/cntcd/' + 'USD', d=>{	
 			$.each(d.exlist.reverse(), (i, j)=>{
 				config.data.labels[i] = j.bdate.substr(-5).replace('-', ' / ')
@@ -124,6 +124,7 @@ $(document).ready(function(){
 			config.options.title.text = `1 USD = ${common.comma_create(config.data.datasets[0].data[config.data.datasets[0].data.length -1])} KRW`
 			window.myLine = new Chart(ctx, config);
 		})
+		
 	}
 	let config2 = {
 		type: 'line',

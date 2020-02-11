@@ -530,7 +530,7 @@ mypage_vue = {
 						</div>
 					</div>`
 	},
-	exchange : ()=>{
+	/*exchange : ()=>{
 		return 	`<div class="themoin-remit-component" style="padding: 30px 0 40px 0;border-top-width: 0px;">
 					<div id="moin-event-amount" class="moin-event-amount"><br>
 					<h1 style="padding-bottom: 0px;">지금 바로 머니허브 환전을 이용해보세요</span>
@@ -539,10 +539,10 @@ mypage_vue = {
 			<div id="chart" style="display: none;"><canvas id="canvas" style="width:200px; height:50px; margin-bottom: 10px"></canvas></div>
 				<div class="check_font" id="exchange_check" ></div>
 					<div class="moin-amount">
-						<div id="remit_box" class="form-calculator main">
+						<div id="exch_box" class="form-calculator main">
 							<div class="amount-row">
 								<div class="">
-									<p>환전 금액</p>
+									<p>환전할 원화 금액</p>
 									<input class="send-amount" id="exchange_amount"  type="text" tabindex="0" placeholder="0.00">
 								</div>
 								<div class="unit-select disabled" tabindex="0" >
@@ -552,8 +552,8 @@ mypage_vue = {
 							</div>
 							<div class="amount-row">
 								<div class="">
-									<p>예상 비용</p>
-									<input class="receive-amount" id="expect" type="text" tabindex="0" placeholder="0.00" readonly="">
+									<p>환전될 외화 금액</p>
+									<input class="receive-amount" type="text" tabindex="0" placeholder="0.00" readonly="">
 								</div>
 								<div class="unit-select receive" tabindex="0">
 									<p>미국</p>
@@ -569,7 +569,7 @@ mypage_vue = {
 		return `<div class="moin-popup">
 					<div class="themoin-unit-select-popup" tabindex="-1">
 						<div class="unit-content">
-							<a class="moin-close">
+							<a class="moin-close" id="popup-close">
 								<img src="https://img.themoin.com/public/img/btn-close.png" srcset="https://img.themoin.com/public/img/btn-close.png 1x,
 								          https://img.themoin.com/public/img/btn-close@2x.png 2x,
 								          https://img.themoin.com/public/img/btn-close@3x.png 3x">
@@ -587,5 +587,47 @@ mypage_vue = {
 			      		</div>
 			      	</div>
 				</div>`
-	}
+	},
+	exch_popup : ()=>{	//환전할때 사용하는 팝업
+		return `<div class="moin-popup">
+					<div class="themoin-unit-select-popup" tabindex="-1">
+						<div class="unit-content" style="width: 500px; height: auto; min-height: 420px ; max-height : 700px; padding-bottom:20px;">
+							<a class="moin-close">
+								<img src="https://img.themoin.com/public/img/btn-close.png" srcset="https://img.themoin.com/public/img/btn-close.png 1x,
+										https://img.themoin.com/public/img/btn-close@2x.png 2x,
+										https://img.themoin.com/public/img/btn-close@3x.png 3x">
+							</a>
+							<div class="themoin-remit-component" style="padding-top: 23px; border-top-width: 0px; padding-bottom: 0px; margin: 0 auto;">
+								<div id="exch_box" class="form-calculator main" style="width: 100%; min-width: 400px;">
+									<div class="amount-row" style="min-height: 100px;">
+										<div class="">
+											<p style="text-align: left;">환전 금액</p>
+											<input class="send-amount" id="exchange_send_amount"  type="text" tabindex="0" placeholder="0.00" value="1000000">
+										</div>
+										<div class="unit-select send" tabindex="0">
+											<p>대한민국</p>
+											<h3>KRW</h3>
+										</div>
+									</div>
+									<div id="cntcd_slide" class="amount-row" style="min-height: 270px; display : none">
+											<ul style="width : 100%; border-width : 1px; border-color :#dbdbdf; border-top-style: solid; border-left-style: solid; border-right-style: solid;" ></ul>
+									</div>
+									<div class="amount-row" style="min-height: 100px;">
+										<div class="">
+											<p style="text-align: left;">예상 비용</p>
+											<input class="receive-amount" type="text" tabindex="0" placeholder="0.00" readonly="">
+										</div>
+										<div class="unit-select receive" tabindex="0" style="background-image: none; cursor: text;">
+											<p>미국</p>
+											<h3>USD</h3>
+										</div>
+									</div>
+									<div id="exchange_test_exrate" style="width : 100%; height: 35px">
+										<p></p> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>`
+	}*/
 }

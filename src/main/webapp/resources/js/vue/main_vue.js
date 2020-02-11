@@ -239,19 +239,12 @@ main_vue ={
 					<h1>지금 바로 머니허브 환전을 이용해보세요</span>
 						<p class="color-deepgrey"></p>
 					</div>
-			<div id="chart" style="display: none;"><canvas id="canvas" style="width:200px; height:50px; margin-bottom: 10px"></canvas></div>
 				<div class="check_font" id="exchange_check" ></div>
 					<div class="moin-amount">
-						<div id="exchange_box" class="form-calculator main">
-						<div class="amount-row"> 
-								<div class="unit-select receive" style="display:-webkit-inline-box;border-width:inherit;max-width:none;align-self: center;">
-									<img src="https://img.themoin.com/public/img/circle-flag-us.svg">
-									<p style="font-size: 19px;margin: 8px 10px 0px 20px;">미국</p><h3 style="margin: 8px 0px 0px 0px;">USD</h3>
-								</div>
-							</div>
+						<div id="exch_box" class="form-calculator main">
 							<div class="amount-row">
 								<div class="">
-									<p>환전 금액</p>
+									<p>환전할 원화 금액</p>
 									<input class="send-amount" id="exchange_amount"  type="text" tabindex="0" placeholder="0.00">
 								</div>
 								<div class="unit-select disabled" tabindex="0" >
@@ -261,15 +254,15 @@ main_vue ={
 							</div>
 							<div class="amount-row">
 								<div class="">
-									<p>예상 비용</p>
-									<input class="receive-amount" id="expect" type="text" tabindex="0" placeholder="0.00" readonly="">
+									<p>환전될 외화 금액</p>
+									<input class="receive-amount" type="text" tabindex="0" placeholder="0.00" readonly="">
 								</div>
 								<div class="unit-select receive" tabindex="0">
 									<p>미국</p>
 									<h3>USD</h3>
 								</div>
 							</div>
-							<button id="exchangebutton" class="index-send-btn moin-body">환전하기</button>
+							<button id="exchangebutton" class="index-send-btn moin-body">환전하러가기</button>
 						</div>
 					</div>
 				</div>

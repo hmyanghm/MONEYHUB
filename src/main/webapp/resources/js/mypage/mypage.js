@@ -23,7 +23,6 @@ mypage =(()=>{
 		withdrawal_js = '/mypage/withdrawal.js'
 		line_graph_js = js + '/exchart/line_graph.js'
 		remit_box_js = js + '/remit/remit_box.js'
-		
 		profitsChart = {}
 		sessionStorage.setItem('profitsChart', JSON.stringify(profitsChart))
 		sessionStorage.setItem('chartFlag', '')
@@ -47,7 +46,6 @@ mypage =(()=>{
 			remit_receive()
 			setInterval(clock_excute, 1000)
 			setInterval(exchange_API, 1000 * 60 * 60 * 12)
-			remit_box.onCreate({ flag : 'mypage', cntcd : '' })
 			remit_list({ nowPage : 0, cno : cus.cno})
 			
 		})
@@ -75,19 +73,44 @@ mypage =(()=>{
 			var top = $('#remit_slider').offset().top - 75;
 			$('html').scrollTop(top);
 			$('#exchange_slider').hide()
+			remit_box.onCreate({ flag : 'mypage', cntcd : '' })
 		})
 		
 		$('#exchange_btn')
 		.click(function(){
-		$("#exchange_slider").show();
+			$("#exchange_slider").show();
+	//		$('#user-remit').hide()
 			var top = $('#exchange_slider').offset().top - 75
 			$('html').scrollTop(top)
 			$('#remit_slider').hide()
-			exchange.onCreate()
+			remit_box.onCreate({ flag : 'exchange2', cntcd : '' })
+			
+			$('#exchangebutton')
+			.click(()=>{
+				exchange.onCreate()
+			})
 		})
 	}
 
 	let page_move =()=>{
+		$('#exch')
+		.click(()=>{
+			exchange.onCreate()
+			$('html').scrollTop(0);
+		})
+		
+		$('#remit')
+		.click(()=>{
+			
+			$('html').scrollTop(0);
+		})
+		
+		$('#testexch')
+		.click(()=>{
+			
+			$('html').scrollTop(0);
+		})
+		
 		$('#mgmt')
 		.click(()=>{
 			sidebar.onCreate('')
@@ -96,9 +119,11 @@ mypage =(()=>{
 		
 		$('#logout')
 		.click(()=>{
-			sessionStorage.setItem('cus', null); 
-			sessionStorage.setItem('deal', JSON.stringify({}));
+			sessionStorage.setItem('cus', null)
+			sessionStorage.setItem('deal', JSON.stringify({}))
 			sessionStorage.setItem('exrateSess',JSON.stringify({}))
+			sessionStorage.setItem('exch',JSON.stringify({}))
+			sessionStorage.setItem('acc',JSON.stringify({}))
 			app.onCreate()
 			$('html').scrollTop(0)
 		})
@@ -381,6 +406,6 @@ mypage =(()=>{
 		})
 	}
 	
-	return { onCreate,remit_list }
+	return { onCreate,remit_list, }
 
 })()

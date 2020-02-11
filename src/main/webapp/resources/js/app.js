@@ -99,7 +99,7 @@ app =(()=>{
 		$('#popup-root')
 		.html(main_vue.cntcd_popup())
 		.hide()
-
+		
 		$('#idx_exchg_btn')
 		.click(()=>{
 			auth.onCreate('login')
@@ -160,7 +160,7 @@ app =(()=>{
 			app.onCreate()
 			$('html').scrollTop(0);
 		})
-	
+		
 	}
 
 	return { run, onCreate }

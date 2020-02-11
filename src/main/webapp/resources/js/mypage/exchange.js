@@ -35,32 +35,39 @@ exchange =(()=>{
 	}
 	let setContentView =()=>{
 		
-		$('#root div.mypage')
-		.html(mypage_vue.exchange())
-		//$.getScript(exChart_js)
+		$('#root div.themoin-main')
+		.html(nav_vue.exchange_nav())
+		
+		$('.form-calculator .amount-row .send')
+    	.css({ cursor : 'text',
+    		'background-image' : 'none'})
+                                		
+		$.getScript(exChart_js)
 		
 		$('#popup-root')
-		.html(mypage_vue.exch_cntcd_popup())
+		.html(nav_vue.exch_cntcd_popup())
 		.hide()
 		
-//		$('#popup-exchange').empty()
+		$('#popup-exchange').empty()
 		
-		let cntcd = $('#exchange_box .amount-row .receive h3').text()
+		//cntcd가 자꾸 두개 나옴 왜?
+		let cntcd = $('#exch_box .amount-row .receive h3').text()
 		let exch_arr = []
-		alert('cntcd는??? '+cntcd)
-		$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
+		alert('exchange.js의 cntcd는??? '+cntcd+'1')
+	/*	$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
 			$.each(d.exlist, (i, j)=>{
 				exch_arr.push(parseFloat(j.exrate))
 			})
 			exch.exrate = exch_arr[0]
 			sessionStorage.setItem('exch',JSON.stringify(exch))
-		})
-		$('.form-calculator .amount-row input.send-amount').keyup(()=>{
-					common.receive_value_calc(exch.exrate)
-		})
+		})*/
+/*		$('#exch_box .amount-row input.send-amount').keyup(()=>{
+				common.receive_value_calc(exch.exrate)
+		})*/
 				
 		$(function(){
-			$('#exchangebutton').one('click', function(){
+			$('#exchangebt').one('click', function(){
+				alert('버튼 클릭?')
 				$('#chart').fadeIn()
 
 				$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
@@ -76,13 +83,13 @@ exchange =(()=>{
 						$('#exchange_check').css('font-weight', 'bold')
 					}
 				})
-				$.getScript(exChart_js)
+//				$.getScript(exChart_js)
 				$(this).click(function(){
 					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
 
-						exch.exchKrw = $('#exchange_box .amount-row input.send-amount').val() //환전할 원화 금액
-						exch.exchCnt = $('#exchange_box .amount-row input.receive-amount').val() //환전된 외화 금액
-						exch.cntcd = $('#exchange_box .amount-row .receive h3').text()
+						exch.exchKrw = $('#exch_box .amount-row input.send-amount').val() //환전할 원화 금액
+						exch.exchCnt = $('#exch_box .amount-row input.receive-amount').val() //환전된 외화 금액
+						exch.cntcd = cntcd
 						exch.cemail = cus.cemail
 						exch.exrate = exch.exrate
 						sessionStorage.setItem('exch',JSON.stringify(exch))
