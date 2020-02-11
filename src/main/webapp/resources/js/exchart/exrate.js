@@ -41,7 +41,7 @@ exrate =(()=>{
 			receive_value = receive_value * exrate
 		}
 		else{
-			receive_value = receive_value / exrate
+			receive_value = parseFloat(receive_value / exrate)
 		}
 		$('.form-calculator .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2)))
 		deal.trdusd = $('.form-calculator .amount-row input.send-amount').val()

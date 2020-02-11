@@ -48,8 +48,6 @@ exchange =(()=>{
 		.html(nav_vue.exch_cntcd_popup())
 		.hide()
 		
-		$('#popup-exchange').empty()
-		
 		//cntcd가 자꾸 두개 나옴 왜?
 		let cntcd = $('#exch_box .amount-row .receive h3').text()
 		let exch_arr = []
@@ -88,7 +86,7 @@ exchange =(()=>{
 					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
 
 						exch.exchKrw = $('#exch_box .amount-row input.send-amount').val() //환전할 원화 금액
-						exch.exchCnt = $('#exch_box .amount-row input.receive-amount').val() //환전된 외화 금액
+						exch.exchCnt = parseFloat($('#exch_box .amount-row input.receive-amount').val()) //환전된 외화 금액
 						exch.cntcd = cntcd
 						exch.cemail = cus.cemail
 						exch.exrate = exch.exrate

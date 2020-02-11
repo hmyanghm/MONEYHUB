@@ -92,7 +92,7 @@ $(document).ready(function(){
 	let receive_value_calc =()=>{
 		let receive_value = $('#exch_box .amount-row input.send-amount').val().replace(/,/gi, '') 
 							/ config.data.datasets[0].data[config.data.datasets[0].data.length -1] 
-		$('#exch_box .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2)))
+		parseFloat($('#exch_box .amount-row input.receive-amount').val(common.comma_create(receive_value.toFixed(2))))
 	}
 	
 	let comma_create =x=>{

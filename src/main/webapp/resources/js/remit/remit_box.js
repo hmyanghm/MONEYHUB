@@ -72,12 +72,22 @@ remit_box =(()=>{
 					{ img : 'pt', cntcd : 'EUR', curr : '포르투갈 유로', flag : '' },
 					{ img : 'es', cntcd : 'EUR', curr : '스페인 유로', flag : '' }]
 				
+				
+			
 				$('#exch_box .amount-row .receive')	// 환전에서 receive cntcd 클릭 시
 				.click(e=>{
 					e.preventDefault()
 					$('#popup-root')
 					.html(nav_vue.exch_cntcd_popup())
 					.show()
+					
+					$('#popup-close')
+					.click(e=>{
+						e.preventDefault()
+						$('#popup-root')
+						.html(nav_vue.exch_cntcd_popup())
+						.hide()
+					})
 					
 					$('#popup_box input').val('')
 					$('#popup_box ul').empty()
@@ -216,7 +226,7 @@ remit_box =(()=>{
 					.then(()=>{
 						common.receive_value_calc(exch_arr[0])
 						$('#exch_box .amount-row input.send-amount').keyup(()=>{
-							common.receive_value_calc(exch_arr[0])
+							parseFloat(common.receive_value_calc(exch_arr[0]))
 						})
 						alert('>>>remit_box - exch.exrate : '+$.exch().exrate +', exch.cntcd : ' + $.exch().cntcd)
 						//alert 결과는 object로 나옴 왜? cntcd가 선택한 cntcd + USD 함께 나옴
