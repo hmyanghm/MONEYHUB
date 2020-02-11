@@ -26,6 +26,8 @@ exrate =(()=>{
 			.css({ 'text-align': 'left', margin : '5px', width : '100%', height: '25px' })
 		}
 		alert(JSON.stringify(exrateSess))
+		
+		
 		receive_value_calc()
 		
 		$('.form-calculator .amount-row input.send-amount').keyup(()=>{

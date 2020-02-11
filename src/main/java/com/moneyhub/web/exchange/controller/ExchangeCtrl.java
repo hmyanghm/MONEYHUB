@@ -23,7 +23,6 @@ import com.moneyhub.web.pxy.Proxy;
 @RequestMapping("/exchange")
 public class ExchangeCtrl extends Proxy {
 
-
 	@Autowired Exchange ex;
 	@Autowired ExchangeMapper exMapper;
 	@Autowired Box<Object> box;
@@ -37,14 +36,12 @@ public class ExchangeCtrl extends Proxy {
 		box.clear();
 		box.put("msg", "SUCCESS");
 		return box.get();
-
 	}
 	
 	@GetMapping("/extrend/cntcd/{cntcd}")
 	public Map<?, ?> exTrend(@PathVariable String cntcd) {
 		return exService.ExTrend(cntcd);
 	}
-	
 
 	@PostMapping("/balanceChg")
 	public Map<?, ?> balanceChg(@RequestBody HashMap<String, Object> exchange){
@@ -60,7 +57,5 @@ public class ExchangeCtrl extends Proxy {
 		System.out.println("잔액 변경하는 자바 부분에서 box.get() -> " + box.get());
 		return box.get();
 	}
-	
-	
 	
 }
