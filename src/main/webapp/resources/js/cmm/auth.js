@@ -50,8 +50,8 @@ auth =(()=>{
 		.appendTo('.themoin-login')
 		
 
-		$('#cemail').val('dmswl@dmswl.com')
-		$('#cpwd').val('12345678')
+		$('#cemail').val('bb@naver.com')
+		$('#cpwd').val('aa')
 
 		/*$('#cemail').val('abc@naver.com')
 		$('#cpwd').val('aa')*/
@@ -107,7 +107,7 @@ auth =(()=>{
 					}					
 				},
 				error : e=>{
-					alert('login ajax 실패')  
+					alert('이메일 및 비밀번호를 확인해주세요.')  
 				}
 			})
 			
