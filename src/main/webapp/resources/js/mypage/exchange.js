@@ -68,7 +68,6 @@ exchange =(()=>{
 		$(function(){
 			$('#exchangebutton').one('click', function(){
 				$('#chart2').fadeIn()
-
 				$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
 					alert(alert('exchange -> d.msg는?' + d.msg))
 					if(d.msg === 'UP'){
@@ -86,6 +85,8 @@ exchange =(()=>{
 				$.getScript(exChart_js)
 				$(this).click(function(){
 					if(confirm('환전하시겠습니까? 확인을 누르시면 바로 실행됩니다.')){
+						alert('컨펌')
+						auth_mgmt.onCreate()
 
 						exch.exchKrw = $('.form-calculator .amount-row input.send-amount').val() //환전할 원화 금액
 						exch.exchCnt = $('.form-calculator .amount-row input.receive-amount').val() //환전된 외화 금액
