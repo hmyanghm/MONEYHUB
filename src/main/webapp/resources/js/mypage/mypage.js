@@ -285,10 +285,6 @@ mypage =(()=>{
 							j.img = k.img
 							$('.form-calculator .amount-row .receive img').attr("src",`https://img.themoin.com/public/img/circle-flag-${j.img}.svg`)
 							j.passName = j.passLnm + j.passFnm
-							alert('j는? ' + JSON.stringify(j))
-							alert('i는? ' + JSON.stringify(i))
-							alert('k는? ' + JSON.stringify(k))
-							
 						}
 					})
 
