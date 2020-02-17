@@ -17,14 +17,14 @@
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	<link rel="canonical" href="https://www.themoin.com">
-	<link rel="shortcut icon" href="/web/resources/img/logo/ci_logo.png">
+	<link rel="shortcut icon" href="/resources/img/logo/ci_logo.png">
 	<link rel="alternate" hreflang="ko" href="https://www.themoin.com/ko">
 	<link rel="alternate" hreflang="en" href="https://www.themoin.com/en">
 	<link rel="alternate" hreflang="x-default" href="https://www.themoin.com/">
-	<link href="/web/resources/css/moin.bundle.css" rel="stylesheet" type="text/css">
+	<link href="/resources/css/moin.bundle.css" rel="stylesheet" type="text/css">
 	
 	<!--카카오 css-->
-	<link href="/web/resources/css/kabang.css" rel="stylesheet" type="text/css">
+	<link href="/resources/css/kabang.css" rel="stylesheet" type="text/css">
 	<!-- Add a banner for Appstore link -->
 	<meta name="apple-itunes-app" content="app-id=1228063143">
 	<title>머니허브(MoneyHub) 해외송금</title>
@@ -58,56 +58,56 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	
 
-	<script src="<%=application.getContextPath()%>/resources/js/app.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/router.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/common.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/cmm_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/main_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/auth_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/cookie.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/mypage.js"></script>
+	<script src="/resources/js/app.js"></script>
+	<script src="/resources/js/cmm/router.js"></script>
+	<script src="/resources/js/cmm/common.js"></script>
+	<script src="/resources/js/vue/cmm_vue.js"></script>
+	<script src="/resources/js/vue/main_vue.js"></script>
+	<script src="/resources/js/vue/auth_vue.js"></script>
+	<script src="/resources/js/cmm/cookie.js"></script>
+	<script src="/resources/js/mypage/mypage.js"></script>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/vue/mypage_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/compo.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/compo_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/event.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/event_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/faq.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/vue/faq_vue.js"></script>
+	<script src="/resources/js/vue/mypage_vue.js"></script>
+	<script src="/resources/js/cmm/compo.js"></script>
+	<script src="/resources/js/vue/compo_vue.js"></script>
+	<script src="/resources/js/cmm/event.js"></script>
+	<script src="/resources/js/vue/event_vue.js"></script>
+	<script src="/resources/js/cmm/faq.js"></script>
+	<script src="/resources/js/vue/faq_vue.js"></script>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/remit/foreignRemit.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/remit/remit_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/remit/remit_box.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/remit/exchange.js"></script>
+	<script src="/resources/js/remit/foreignRemit.js"></script>
+	<script src="/resources/js/remit/remit_vue.js"></script>
+	<script src="/resources/js/remit/remit_box.js"></script>
+	<script src="/resources/js/remit/exchange.js"></script>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/cus_info.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/cmm/sidebar.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/cus_info_chg.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/pwd_chg.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/account.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/alarm.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/ref_mgmt.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/withdrawal.js"></script>
-	<%-- <script src="<%=application.getContextPath()%>/resources/js/mypage/exchange.js"></script> --%>
-	<%-- <script src="<%=application.getContextPath()%>/resources/js/mypage/exChart.js"></script> --%>
+	<script src="/resources/js/mypage/cus_info.js"></script>
+	<script src="/resources/js/cmm/sidebar.js"></script>
+	<script src="/resources/js/mypage/cus_info_chg.js"></script>
+	<script src="/resources/js/mypage/pwd_chg.js"></script>
+	<script src="/resources/js/mypage/account.js"></script>
+	<script src="/resources/js/mypage/alarm.js"></script>
+	<script src="/resources/js/mypage/ref_mgmt.js"></script>
+	<script src="/resources/js/mypage/withdrawal.js"></script>
+	<%-- <script src="/resources/js/mypage/exchange.js"></script> --%>
+	<%-- <script src="/resources/js/mypage/exChart.js"></script> --%>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/admin/adminLogin.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/adminIndex.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/buttons.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/members.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/fee.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/profitChart.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/qna.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin/transactionChart.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin_vue/adminIndex_vue.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/admin_vue/adminIndexHome_vue.js"></script>
+	<script src="/resources/js/admin/adminLogin.js"></script>
+	<script src="/resources/js/admin/adminIndex.js"></script>
+	<script src="/resources/js/admin/buttons.js"></script>
+	<script src="/resources/js/admin/members.js"></script>
+	<script src="/resources/js/admin/fee.js"></script>
+	<script src="/resources/js/admin/profitChart.js"></script>
+	<script src="/resources/js/admin/qna.js"></script>
+	<script src="/resources/js/admin/transactionChart.js"></script>
+	<script src="/resources/js/admin_vue/adminIndex_vue.js"></script>
+	<script src="/resources/js/admin_vue/adminIndexHome_vue.js"></script>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/mypage/exchange_test.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/tables/tables_mgmt.js"></script>	
-	<script src="<%=application.getContextPath()%>/resources/js/exchart/Chart.min.js"></script>
-	<script src="<%=application.getContextPath()%>/resources/js/exchart/utils.js"></script>
+	<script src="/resources/js/mypage/exchange_test.js"></script>
+	<script src="/resources/js/tables/tables_mgmt.js"></script>	
+	<script src="/resources/js/exchart/Chart.min.js"></script>
+	<script src="/resources/js/exchart/utils.js"></script>
 	
-	<script src="<%=application.getContextPath()%>/resources/js/kakao/postcode.v2.js"></script>
+	<script src="/resources/js/kakao/postcode.v2.js"></script>
 	
 </head>
 <body id="page-top">
@@ -132,7 +132,7 @@
 				</div>
 				<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 91%; width: 100%; z-index: -999998; position: absolute;">
 <!-- 					<img src="http://www.kaiwa-projects.com/assets/img/backstretch.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 825px; max-height: none; max-width: none; z-index: -999999; left: -129.833px; top: 0px;"> -->
-					<img src="/web/resources/img/main.png" style="opacity: 0.5; margin: 0px; padding: 0px; border: none; width: 100%; height: 99%; max-height: none; max-width: none; z-index: -999999; left: -129.833px; top: 0px;">
+					<img src="/resources/img/main.png" style="opacity: 0.5; margin: 0px; padding: 0px; border: none; width: 100%; height: 99%; max-height: none; max-width: none; z-index: -999999; left: -129.833px; top: 0px;">
 				</div>
 			</div>
 			<div id="nav-sticky-wrapper" class="sticky-wrapper" style="height: 60px;">
@@ -242,7 +242,7 @@
 					<div class="row projects gallery" style="margin-left: 320px;">
 						<div class="col-1-6 project port-application mix_all" style="display: inline-block;  opacity: 1;">
 							<a id="project" href="#">
-								<img src="/web/resources/img/logo/ci_logo2.png" alt="project">
+								<img src="/resources/img/logo/ci_logo2.png" alt="project">
 							</a>
 						</div>
 						<div class="col-1-6 project port-game mix_all" style="display: inline-block;  opacity: 1; padding-top: 30px;">
@@ -301,7 +301,7 @@
 	<script>
 		$('#project')
 		.click(()=>{
-			app.run('<%=application.getContextPath()%>')
+			app.run('')
 		})
 	</script>
 </body>

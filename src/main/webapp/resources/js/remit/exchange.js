@@ -54,7 +54,7 @@ exchange =(()=>{
 		
 		let cntcd = $('#exch_box .amount-row .receive h3').text()
 		let deal_arr = []
-		$.getJSON('/web/exrate/search/cntcd/' + cntcd, d=>{	
+		$.getJSON('/exrate/search/cntcd/' + cntcd, d=>{	
 			$.each(d.exlist, (i, j)=>{
 				deal_arr.push(parseFloat(j.exrate))
 			})
@@ -70,7 +70,7 @@ exchange =(()=>{
 			$('#exchangebutton').one('click', function(){
 				$('#chart2').fadeIn()
 				let cntcd = $('#exch_box .amount-row .receive h3').text()
-				$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
+				$.getJSON('/exchange/extrend/cntcd/' + cntcd, d=>{
 					if(d.msg === 'UP'){
 						$('#exchange_check').text('최근 약 2주간 해당 환율은 상승세입니다.')
 						$('#exchange_check').css('color', 'blue')
@@ -108,14 +108,14 @@ exchange =(()=>{
 						alert(JSON.stringify(deal))
 						
 						$.ajax({ 
-						url: _+'/account/withdrawal',
+						url: '/account/withdrawal',
 						type : 'POST',
 						data : JSON.stringify(deal), 
 						contentType :'application/json',
 						success : () => {
 //							alert("입금 확인되었습니다.")
 							$.ajax({
-								url: _+'/remit/insert/exch',
+								url: '/remit/insert/exch',
 								type : 'POST',
 								data : JSON.stringify(deal),
 								contentType :'application/json',

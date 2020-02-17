@@ -4,7 +4,7 @@ login_vue ={
 		return '	<div class="themoin-login">'+
 		'				<div>'+
 		'					<div class="image-box">'+
-		'			<img src="/web/resources/img/logo/ci_logo.png">'+
+		'			<img src="/resources/img/logo/ci_logo.png">'+
 		'					</div>'+
 		'				</div>'+
 		'			</div>'+

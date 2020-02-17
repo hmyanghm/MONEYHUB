@@ -22,17 +22,17 @@ main_vue ={
 		<div class="themoin-remit-component"> 
 			<div class="steps" style="max-width: 1365px; text-align: center; "> 
                <div id="idx_exchg_btn" class="threesteps">
-               <img id="idx_exch_btn2" src="/web/resources/img/main/exchange.png" style="width: 300px;">
+               <img id="idx_exch_btn2" src="/resources/img/main/exchange.png" style="width: 300px;">
                <br><br>
                <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">환전</h2>
                </div>
                <div id="idx_remit_btn" class="threesteps">
-               <img src="/web/resources/img/main/remit.png" style="width: 300px">
+               <img src="/resources/img/main/remit.png" style="width: 300px">
                <br><br>
                <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">wu 해외송금</h2>
                </div>
                <div id="idx_testexchg_btn" class="threesteps">
-               <img src="/web/resources/img/main/testexchange.png" style="width: 300px">
+               <img src="/resources/img/main/testexchange.png" style="width: 300px">
                <br><br>
                <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">모의 환전</h2>
                </div>
@@ -211,17 +211,17 @@ main_vue ={
 				<div class="themoin-remit-component"> 
 						<div class="steps" style="max-width: 1365px; text-align: center; "> 
                            <div id="exchange_btn" class="threesteps">
-                           <img src="/web/resources/img/main/exchange.png" style="width: 300px;">
+                           <img src="/resources/img/main/exchange.png" style="width: 300px;">
                            <br><br>
                            <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">환전</h2>
                         </div>
                         <div id="remit_btn" class="threesteps">
-                           <img src="/web/resources/img/main/remit.png" style="width: 300px">
+                           <img src="/resources/img/main/remit.png" style="width: 300px">
                            <br><br>
                            <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">WU 해외송금</h2>
                         </div>
                         <div  id="exchange_test_btn" class="threesteps">
-                           <img src="/web/resources/img/main/testexchange.png" style="width: 300px">
+                           <img src="/resources/img/main/testexchange.png" style="width: 300px">
                            <br><br>
                            <h2 style="font-weight:bold; font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', Helvetica, Arial, sans-serif">모의 환전</h2>
                         </div>

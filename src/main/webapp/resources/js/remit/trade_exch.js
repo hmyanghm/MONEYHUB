@@ -54,7 +54,7 @@ trade_Exch = (()=>{
 				$('#main_user_btn').click( e => {
 					e.preventDefault()
 					/*$.ajax({ // 계좌에 인설트
-						url: _+'/account/withdrawal',
+						url: '/account/withdrawal',
 						type : 'POST',
 						data : JSON.stringify(deal),
 						contentType :'application/json',
@@ -168,7 +168,7 @@ trade_Exch = (()=>{
 //			deal.exrate = String(deal.exrate)
 //			sessionStorage.setItem('deal',JSON.stringify(deal))
 //			$.ajax({
-//				url: _+'/remit/insert',
+//				url: '/remit/insert',
 //				type : 'POST',
 //				data : JSON.stringify(deal),
 //				contentType :'application/json',
@@ -194,7 +194,7 @@ trade_Exch = (()=>{
 			$('#main_user_btn').click( e => {
 				e.preventDefault()
 				/*$.ajax({ // 계좌에 인설트
-					url: _+'/account/withdrawal',
+					url: '/account/withdrawal',
 					type : 'POST',
 					data : JSON.stringify(deal),
 					contentType :'application/json',
