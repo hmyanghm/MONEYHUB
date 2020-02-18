@@ -53,7 +53,7 @@ mypage =(()=>{
 			page_move()	
 			remit_receive()
 			setInterval(clock_excute, 1000)
-//			remit_box.onCreate({ flag : 'mypage', cntcd : '' })
+			remit_box.onCreate({ flag : 'mypage', cntcd : '' })
 			remit_list({ nowPage : 0, cno : cus.cno})
 		})
 		.fail(()=>{
