@@ -31,7 +31,7 @@ exchangeDB =(()=>{
 	}
 	
 	let selectExchangeDB = () => {
-		$.getJSON(_ + '/admin/exchangeDB',d=>{
+		$.getJSON('/admin/exchangeDB',d=>{
 			$(exchangeDB_vue.exchangeDB_body()).appendTo('div.container-fluid')
 			$('#exchangeDBUpdateValue').val('')
 			$('#exchangeDBReadOnly').val(`현재 수수료 ${d.exchangeDB.substring(0,3)}프로 적용중`)
@@ -43,7 +43,7 @@ exchangeDB =(()=>{
 		$('#exchangeDBUpdate').click(e=>{
 			e.preventDefault()
 			$.ajax({				
-				url : _ + '/admin/exchangeDBUpdate',
+				url : '/admin/exchangeDBUpdate',
 				type : 'POST',
 				data : JSON.stringify({		
 					exchangeDBValue : $('#exchangeDBUpdateValue').val()

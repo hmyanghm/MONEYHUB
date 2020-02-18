@@ -40,7 +40,7 @@ withdrawal =(()=>{
 			e.preventDefault()
 			if(confirm('회원탈퇴 하시겠습니까?')){
 				$.ajax({
-					url : _ + '/customers/withdrawal',
+					url : '/customers/withdrawal',
 					type : 'DELETE',
 					data : JSON.stringify({
 						cemail : $('#cemail').val(),

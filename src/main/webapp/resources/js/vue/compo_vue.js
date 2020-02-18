@@ -53,7 +53,7 @@ compo_vue ={
 			</div>
 			<div class="company-ci">
 			<div>
-				<img src="/web/resources/img/logo/ci_logo.png">
+				<img src="/resources/img/logo/ci_logo.png">
 				<div class="spacer"></div>
 				<div>
 					<br>

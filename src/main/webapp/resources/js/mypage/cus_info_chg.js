@@ -26,7 +26,7 @@ cus_info_chg =(()=>{
 	let setContentView =()=>{
 		$('#root div.mypage')
 		.html(mypage_vue.cus_info_chg())
-		$.getJSON(_+'/customers/cusInfo/' + $('#cemail').val(), d=>{
+		$.getJSON('/customers/cusInfo/' + $('#cemail').val(), d=>{
 			$('#infoZip').text(d.cus.zip)
 			$('#infoAddr').text(d.cus.addr)
 			$('#infoAddr2').text(d.cus.daddr)
@@ -43,7 +43,7 @@ cus_info_chg =(()=>{
 			e.preventDefault()
 			if(confirm('회원정보를 수정하시겠습니까?')){
 				$.ajax({
-					url : _ + '/customers/cusInfoChg',
+					url : '/customers/cusInfoChg',
 					type : 'POST',
 					data : JSON.stringify({
 						cemail : sessionStorage.getItem('CEMAIL'),

@@ -32,12 +32,11 @@ members =(()=>{
 	}	
 	
 	let setContentViewUpdate =x=>{	
-//		$(memberUpdate_vue.memberUpdateHead()).appendTo('head')
 		$(memberUpdate_vue.memberUpdateBody(x)).appendTo('div.container-fluid')
 		$('#updateComplete').click(e=>{
 			e.preventDefault()			
 			$.ajax({				
-				url : _ + '/admin/memberUpdate',
+				url : '/admin/memberUpdate',
 				type : 'POST',
 				data : JSON.stringify({		
 					cno : x.CNO,
@@ -71,8 +70,7 @@ members =(()=>{
 	}
 	
 	let selectTableMember = () => {
-		$.getJSON(_ + '/admin/member',d=>{
-//			$(tables_vue.tables_head()).appendTo('head')
+		$.getJSON('/admin/member',d=>{
 			$(tables_vue.tables_body()).appendTo('div.container-fluid')
 				$.each(d.adm,(i,j)=>{
 					let jObject = j
@@ -86,7 +84,6 @@ members =(()=>{
 							'                    </tr>')
 							.appendTo('#adminMemberList')
 							.click(()=>{
-//								$('head').empty()
 								$('div.container-fluid').empty()
 								setContentViewUpdate(jObject)
 							})

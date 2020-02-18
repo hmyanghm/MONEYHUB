@@ -4,7 +4,7 @@ nav_vue = {
 		return `<nav class="themoin-header" id="nav-global"> 
 			<div> 
 				<a class="logo"> 
-					<img id="navlogo" src="/web/resources/img/logo/white_logo.png"> 
+					<img id="navlogo" src="/resources/img/logo/white_logo.png"> 
 				</a> 
 				<div class="spacer"></div> 
 				<a class="menu"> 
@@ -22,12 +22,12 @@ nav_vue = {
 						        var scroll = $(window).scrollTop();  
 						        if(scroll == 0){ 
 						        	$(".themoin-header").css("background-color","#313c4a"); 
-						        	$("#navlogo").attr("src","/web/resources/img/logo/white_logo.png"); 
+						        	$("#navlogo").attr("src","/resources/img/logo/white_logo.png"); 
 						        	$(".themoin-header ul li a").css("color","#ffffff"); 
 						        	$(".themoin-language-dropdown a").css("color","#ffffff"); 
 						        }else  if(scroll>1){ 
 							        $(".themoin-header").css("background-color","rgba(255, 255, 255, 0.9)","color","#003764"); 
-							        $("#navlogo").attr("src","/web/resources/img/logo/black_logo.png"); 
+							        $("#navlogo").attr("src","/resources/img/logo/black_logo.png"); 
 							        $(".themoin-header ul li a").css("color","#313c4a"); 
 							        $(".themoin-language-dropdown a").css("color","#003764") 
 							    }  
@@ -40,7 +40,7 @@ nav_vue = {
 		return `<nav class="themoin-header"> 
 			<div> 
 				<a class="logo"> 
-					<img id="navlogo" src="/web/resources/img/logo/white_logo.png"> 
+					<img id="navlogo" src="/resources/img/logo/white_logo.png"> 
 				</a> 
 				<div class="spacer"></div> 
 				<a class="menu"> 

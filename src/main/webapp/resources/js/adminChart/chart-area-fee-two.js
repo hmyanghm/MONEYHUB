@@ -65,7 +65,7 @@ $(function(){
 	
 	let chartLabels = []
 	let chartData = []
-	$.getJSON('/web/adminChart/feeChartsTwo',d=>{
+	$.getJSON('/adminChart/feeChartsTwo',d=>{
 		$.each(d.feeDBChart,(i,j)=>{
 			chartLabels.push(j+"일")
 		})

@@ -30,7 +30,7 @@ fee =(()=>{
 	}
 	
 	let selectFee = () => {
-		$.getJSON(_ + '/admin/fee',d=>{
+		$.getJSON('/admin/fee',d=>{
 			$(fee_vue.fee_body(d)).appendTo('div.container-fluid')
 			$('#feeOneUpdateValue').val('')
 			$('#feeTwoUpdateValue').val('')
@@ -44,7 +44,7 @@ fee =(()=>{
 		$('#feeOneUpdate').click(e=>{
 			e.preventDefault()
 			$.ajax({				
-				url : _ + '/admin/feeUpdateOne',
+				url : '/admin/feeUpdateOne',
 				type : 'POST',
 				data : JSON.stringify({		
 					feeOneValue : $('#feeOneUpdateValue').val()
@@ -71,7 +71,7 @@ fee =(()=>{
 		$('#feeTwoUpdate').click(e=>{
 			e.preventDefault()
 			$.ajax({				
-				url : _ + '/admin/feeUpdateTwo',
+				url : '/admin/feeUpdateTwo',
 				type : 'POST',
 				data : JSON.stringify({		
 					feeTwoValue : $('#feeTwoUpdateValue').val()

@@ -147,7 +147,7 @@ remit_box =(()=>{
 					let deal_arr = []
 					function getExrate(){
 						return new Promise(function(resolve){
-							$.getJSON('/web/exrate/search/cntcd/' + j.cntcd, d=>{	
+							$.getJSON('/exrate/search/cntcd/' + j.cntcd, d=>{	
 								if(d){
 									$.each(d.exlist, (i, j)=>{
 										deal_arr.push(parseFloat(j.exrate))
@@ -170,7 +170,7 @@ remit_box =(()=>{
 						alert('시스템 확인 중입니다.')
 					})
 					let cntcd = $('#exch_box .amount-row .receive h3').text()
-					$.getJSON(_+'/exchange/extrend/cntcd/' + cntcd, d=>{
+					$.getJSON('/exchange/extrend/cntcd/' + cntcd, d=>{
 						if(d.msg === 'UP'){
 							$('#exchange_check').text('최근 약 2주간 해당 환율은 상승세입니다.')
 							$('#exchange_check').css('color', 'blue')

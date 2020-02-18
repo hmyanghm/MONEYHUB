@@ -62,14 +62,14 @@ account =(()=>{
 			sessionStorage.setItem('acc', JSON.stringify(acc))
 			if(acc.deposit != null && acc.deposit != ''){
 			$.ajax({
-				url : _ + `/account/deposit`,
+				url : `/account/deposit`,
 				type : 'POST',
 				data : JSON.stringify(acc),
 				contentType : 'application/json',
 				success : ()=>{
 					alert('입금되었습니다.')
 					let acctno = acc.acctNo
-					$.getJSON(_ + '/account/balance/'+acctno, d=>{ 
+					$.getJSON('/account/balance/'+acctno, d=>{ 
 						acc.balance = d.balance
 						sessionStorage.setItem('acc', JSON.stringify(acc))
 					})
@@ -87,7 +87,7 @@ account =(()=>{
 		accHis = $.accHis()
 		let cemail = cus.cemail
 		let account = acc.acctNo
-		$.getJSON(_+'/account/getacchis/' + cemail + '/' + account, d=>{ // 내역 보이기
+		$.getJSON('/account/getacchis/' + cemail + '/' + account, d=>{ // 내역 보이기
 			if(d.msg === "SUCCESS"){
 				$.each(d.accHis, (i, j)=>{
 					if(j.atypecd == '1'){j.atypecd = '송금'}

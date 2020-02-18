@@ -42,7 +42,7 @@ pwd_chg =(()=>{
 			e.preventDefault()
 			if(confirm('비밀번호를 변경하시겠습니까?')){
 				$.ajax({
-					url : _ + '/customers/pwdChg',
+					url : '/customers/pwdChg',
 					type : 'POST',
 					data : JSON.stringify({
 						cemail : $('#cemail').val(),

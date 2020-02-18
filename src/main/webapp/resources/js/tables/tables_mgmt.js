@@ -103,7 +103,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/datepicker/create/table', d=>{
+			$.getJSON('/datepicker/create/table', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -117,7 +117,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/datepicker/truncate/table`, d=>{
+			$.getJSON(`/datepicker/truncate/table`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -125,7 +125,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/datepicker/delete/table`, d=>{
+			$.getJSON(`/datepicker/delete/table`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -137,7 +137,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/faq/create/table', d=>{
+			$.getJSON('/faq/create/table', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -145,7 +145,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/tx/insert/faqlist`, d=>{
+			$.getJSON(`/tx/insert/faqlist`, d=>{
 				alert(`테이블 DATA Insert 성공여부 : ${d.result}`)
 			})
 		})
@@ -153,7 +153,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/faq/truncate/table`, d=>{
+			$.getJSON(`/faq/truncate/table`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -161,7 +161,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/faq/delete/table`, d=>{
+			$.getJSON(`/faq/delete/table`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -172,7 +172,7 @@ tables_mgmt =(()=>{
 		$(`<br><br><h3><a>EARATE 테이블 생성</a></h3><br><br>`)
 		.appendTo('#right')
 		.click(()=>{
-			$.getJSON( _ + `/exrate/create/table`, d=>{
+			$.getJSON(`/exrate/create/table`, d=>{
 				alert(`테이블 성공 여부 : ${d.result}`)
 			})
 		})
@@ -190,7 +190,7 @@ tables_mgmt =(()=>{
 						exrate : j.rate.toFixed(2)})
 				})
 				$.ajax({
-					url : _ + `/exrate/insert/api`,
+					url : `/exrate/insert/api`,
 					type : 'POST',
 					data : JSON.stringify({ 'paramList' : arr }),
 					dataType : 'json',
@@ -208,7 +208,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/tx/insert/exratelist`, d=>{
+			$.getJSON(`/tx/insert/exratelist`, d=>{
 				alert(`테이블 DATA 삽입 성공여부 : ${d.result}`)
 			})
 		})
@@ -216,7 +216,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/exrate/truncate/table`, d=>{
+			$.getJSON(`/exrate/truncate/table`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -224,7 +224,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/exrate/delete/table`, d=>{
+			$.getJSON(`/exrate/delete/table`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -236,7 +236,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/crudtable/create/createCustomer', d=>{
+			$.getJSON('/crudtable/create/createCustomer', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -244,7 +244,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/insert/insertCustomer`, d=>{
+			$.getJSON(`/crudtable/insert/insertCustomer`, d=>{
 				alert(`테이블 DATA Insert 성공여부 : ${d.result}`)
 			})
 		})
@@ -252,7 +252,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/truncate/truncateCustomer`, d=>{
+			$.getJSON(`/crudtable/truncate/truncateCustomer`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -260,7 +260,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/drop/dropCustomer`, d=>{
+			$.getJSON(`/crudtable/drop/dropCustomer`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -272,7 +272,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/crudtable/create/createFee', d=>{
+			$.getJSON('/crudtable/create/createFee', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -281,7 +281,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/insert/insertFee`, d=>{
+			$.getJSON(`/crudtable/insert/insertFee`, d=>{
 				alert(`테이블 DATA Insert 성공여부 : ${d.result}`)
 			})
 		})
@@ -290,7 +290,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/truncate/truncateFee`, d=>{
+			$.getJSON(`/crudtable/truncate/truncateFee`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 			
@@ -300,7 +300,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/drop/dropFee`, d=>{
+			$.getJSON(`/crudtable/drop/dropFee`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 			
@@ -313,7 +313,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/crudtable/create/createFeeDB', d=>{
+			$.getJSON('/crudtable/create/createFeeDB', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -322,7 +322,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/truncate/truncateFeeDB`, d=>{
+			$.getJSON(`/crudtable/truncate/truncateFeeDB`, d=>{
 				alert(`테이블 DATA 삭제 성공여부 : ${d.result}`)
 			})
 			
@@ -332,7 +332,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/drop/dropFeeDB`, d=>{
+			$.getJSON(`/crudtable/drop/dropFeeDB`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 			
@@ -345,7 +345,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/crudtable/create/createAdmin', d=>{
+			$.getJSON('/crudtable/create/createAdmin', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -353,7 +353,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/crudtable/drop/dropAdmin`, d=>{
+			$.getJSON(`/crudtable/drop/dropAdmin`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -365,7 +365,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/remtable/create/table/trd', d=>{
+			$.getJSON('/remtable/create/table/trd', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -373,7 +373,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/remtable/delete/table/trd`, d=>{
+			$.getJSON(`/remtable/delete/table/trd`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -384,7 +384,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/remtable/create/table/trdhr', d=>{
+			$.getJSON('/remtable/create/table/trdhr', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -392,7 +392,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/remtable/delete/table/trdhr`, d=>{
+			$.getJSON(`/remtable/delete/table/trdhr`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})
@@ -403,7 +403,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + '/remtable/create/table/rcpt', d=>{
+			$.getJSON('/remtable/create/table/rcpt', d=>{
 				alert(`테이블 성공여부 : ${d.result}`)
 			})
 		})
@@ -411,7 +411,7 @@ tables_mgmt =(()=>{
 		.appendTo('#right')
 		.click(e=>{
 			e.preventDefault()
-			$.getJSON( _ + `/remtable/delete/table/rcpt`, d=>{
+			$.getJSON(`/remtable/delete/table/rcpt`, d=>{
 				alert(`테이블 삭제 성공여부 : ${d.result}`)
 			})
 		})

@@ -169,7 +169,7 @@ $(document).ready(function(){
 		
 	}else if($.chartFlag() === 'historyChart'){	
 		let usdData = [], eurData = [], cnyData = [], jpyData = [], audData = [], ctx, tempConfig = {}
-		$.getJSON( `/web/exrate/exchangetest/${$.exrateSess().bdate}`, d=>{
+		$.getJSON( `/exrate/exchangetest/${$.exrateSess().bdate}`, d=>{
 			let l = d.usdRate.length
 			config.data.labels = []
 			for(let i=0; i<l; i++){
@@ -198,7 +198,7 @@ $(document).ready(function(){
 		})
 	}else{
 		let cntcd = $('.form-calculator .amount-row .receive h3').text()
-		$.getJSON( '/web/exrate/search/cntcd/' + 'USD', d=>{	
+		$.getJSON( '/exrate/search/cntcd/' + 'USD', d=>{	
 			$.each(d.exlist.reverse(), (i, j)=>{
 				config.data.labels[i] = j.bdate.substr(-5).replace('-', ' / ')
 				config.data.datasets[0].data[i] = parseFloat(j.exrate)

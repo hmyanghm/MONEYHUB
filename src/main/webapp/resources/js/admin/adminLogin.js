@@ -43,7 +43,7 @@ adminLogin =(()=>{
 		.click(e=>{
 			e.preventDefault()
 			$.ajax({
-				url : _ + '/admin/login',
+				url : '/admin/login',
 				type : 'POST',
 				data : JSON.stringify({
 					amail : $('#amail').val(),

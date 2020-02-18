@@ -10,10 +10,10 @@ exchange_vue ={
 		'  <meta name="author" content="">'+
 		' <title>SB Admin 2 - Charts</title>'+
 		' <!-- Custom fonts for this template-->'+
-		'  <link href="/web/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">'+
+		'  <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">'+
 		'  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">'+
 		' <!-- Custom styles for this template-->'+
-		'  <link href="/web/resources/css/sb-admin-2.min.css" rel="stylesheet">'+
+		'  <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">'+
 		'</head>'
 	},
 	exchange_body : () =>{
@@ -102,9 +102,9 @@ exchange_vue ={
 		'    </div>'+
 		'  </div>'+
 		' <!-- Page level plugins -->'+
-		'  <script src="/web/resources/vendor/chart.js/Chart.min.js"></script>'+
+		'  <script src="/resources/vendor/chart.js/Chart.min.js"></script>'+
 		' <!-- Page level custom scripts -->'+
-		'  <script src="/web/resources/js/adminChart/chart-area-exchange.js"></script>'+
+		'  <script src="/resources/js/adminChart/chart-area-exchange.js"></script>'+
 		'</body>'
 	}
 }

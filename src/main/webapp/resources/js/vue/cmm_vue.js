@@ -46,7 +46,7 @@ cmm_vue = {
 				</div> 
 				<div class="section bottom"> 
 					<div class="company"> 
-						<img src="/web/resources/img/logo/gray_logo.png"> 
+						<img src="/resources/img/logo/gray_logo.png"> 
 						<p> 
 									(주)머니허브 | 대표이사 : 양현미 | 사업자등록번호 : 123-45-67890 
 									<br> 
