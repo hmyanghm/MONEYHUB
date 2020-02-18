@@ -90,7 +90,7 @@ account =(()=>{
 		accHis = $.accHis()
 		let cemail = cus.cemail
 		let account = acc.acctNo
-		$.getJSON(_+'/account/getacchis/' + cemail + '/' + account, d=>{ // 내역 보이기
+		$.getJSON('/account/getacchis/' + cemail + '/' + account, d=>{ // 내역 보이기
 			if(d.msg === "SUCCESS"){
 				$.each(d.accHis, (i, j)=>{
 					if(j.atypecd == '1'){j.atypecd = '송금'}

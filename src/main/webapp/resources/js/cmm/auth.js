@@ -310,7 +310,7 @@ auth =(()=>{
 						&& $('#zip').val().length > 0 && $('#addr').val().length > 0 
 						&& $('#daddr').val().length > 0 && $('#birth').val().length > 0){
 					$.ajax({
-						url : _+'/customers/',
+						url : '/customers/',
 						type : 'POST',
 						data : JSON.stringify({
 							cemail : $('#cemail').val(),
@@ -358,7 +358,7 @@ auth =(()=>{
 		$('#cemail').keyup(()=>{
 			if($('#cemail').val().length >= 1){
 				$.ajax({
-					url : _+'/customers' + '/existid/' + encodeURIComponent($('#cemail').val()) + '/',
+					url : '/customers' + '/existid/' + encodeURIComponent($('#cemail').val()) + '/',
 					type: 'GET',
 					data: JSON.stringify({
 						cemail : $('#cemail').val()

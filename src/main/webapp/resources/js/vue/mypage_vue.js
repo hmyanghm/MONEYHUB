@@ -397,9 +397,9 @@ mypage_vue = {
 					   font-size: 12px;
 					}
 			    </style>
-				<script src="/web/resources/js/maps/jquery.mapael.js"></script>
-			    <script src="/web/resources/js/maps/global_map.js"></script>
-			    <script src="/web/resources/js/maps/world_countries.js"></script>`
+				<script src="/resources/js/maps/jquery.mapael.js"></script>
+			    <script src="/resources/js/maps/global_map.js"></script>
+			    <script src="/resources/js/maps/world_countries.js"></script>`
 	},
 	exchange_test_head : ()=>{
 		return `<style type="text/css">
@@ -443,9 +443,9 @@ mypage_vue = {
 					.ui-datepicker-week-end .ui-state-default { color:red; }
 
 			    </style>
-				<script src="/web/resources/js/maps/jquery.mapael.js"></script>
-			    <script src="/web/resources/js/maps/global_map.js"></script>
-			    <script src="/web/resources/js/maps/world_countries.js"></script>`
+				<script src="/resources/js/maps/jquery.mapael.js"></script>
+			    <script src="/resources/js/maps/global_map.js"></script>
+			    <script src="/resources/js/maps/world_countries.js"></script>`
 	},
 	exchange_popup : ()=>{	//themoin-remit-component
 		return `<div class="moin-popup">

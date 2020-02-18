@@ -26,7 +26,7 @@ cus_info_chg =(()=>{
 	let setContentView =()=>{
 		$('#root div.mypage')
 		.html(mypage_vue.cus_info_chg())
-		$.getJSON(_+'/customers/cusInfo/' + $('#cemail').val(), d=>{
+		$.getJSON('/customers/cusInfo/' + $('#cemail').val(), d=>{
 			$('#infoZip').text(d.cus.zip)
 			$('#infoAddr').text(d.cus.addr)
 			$('#infoAddr2').text(d.cus.daddr)

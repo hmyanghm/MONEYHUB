@@ -146,7 +146,7 @@ foreignRemit = (()=>{
 			deal.crtmem = 'LEJ'
 			sessionStorage.setItem('deal',JSON.stringify(deal))
 			$.ajax({
-				url: _+'/remit/insert',
+				url: '/remit/insert',
 				type : 'POST',
 				data : JSON.stringify(deal),
 				contentType :'application/json',
@@ -189,7 +189,7 @@ foreignRemit = (()=>{
 			alert(JSON.stringify(deal))
 			
 			$.ajax({ 
-			url: _+'/account/withdrawal',
+			url: '/account/withdrawal',
 			type : 'POST',
 			data : JSON.stringify(deal), 
 			contentType :'application/json',

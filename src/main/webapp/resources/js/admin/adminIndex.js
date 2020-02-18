@@ -46,7 +46,7 @@ adminIndex =(()=>{
 		$('head').empty()
 		$('body').empty()
 		$(adminIndex_vue.main_head()).appendTo('head')
-		$.getJSON(_+'/admin/exchangeTotalCount',d=>{
+		$.getJSON('/admin/exchangeTotalCount',d=>{
 			$(adminIndex_vue.main_body(d)).appendTo('body')	
 			topTotalAdmin()
 			leftMenuEvent()
@@ -54,16 +54,16 @@ adminIndex =(()=>{
 	}	
 	
 	let topTotalAdmin=()=>{
-		$.getJSON(_+'/admin/memberNowExchange',d=>{
+		$.getJSON('/admin/memberNowExchange',d=>{
 			$('<tr><td>'+d.memberNowExchange+'원</td></tr>').appendTo('#memberNowExchange')
 		})
-		$.getJSON(_+'/admin/memberTotalBalance',d=>{
+		$.getJSON('/admin/memberTotalBalance',d=>{
 			$('<tr><td>'+d.memberTotalBalance+'원</td></tr>').appendTo('#memberTotalBalance')
 		})
-		$.getJSON(_+'/admin/totalProfit',d=>{
+		$.getJSON('/admin/totalProfit',d=>{
 			$('<tr><td>'+d.totalProfit+'원</td></tr>').appendTo('#totalProfit')
 		})
-		$.getJSON(_+'/admin/memberNowCount',d=>{
+		$.getJSON('/admin/memberNowCount',d=>{
 			$('<tr><td>'+d.memberNowCount+'명</td></tr>').appendTo('#memberNowCount')
 		})
 	}
@@ -72,7 +72,7 @@ adminIndex =(()=>{
 		$('#adminHome').click(()=>{
 			$('div.container-fluid').empty()
 			$('div.container').empty()
-			$.getJSON(_+'/admin/exchangeTotalCount',d=>{
+			$.getJSON('/admin/exchangeTotalCount',d=>{
 				$(adminIndexHome_vue.home_body(d)).appendTo('div.container-fluid')
 				topTotalAdmin()
 			})				
@@ -96,7 +96,7 @@ adminIndex =(()=>{
 		$('#adminLogout').click(()=>{
 			$('head').empty()
 			$('body').empty()
-			location = "http://localhost:8080/web/"
+			location = "http://이은지.coo.kr"
 		})
 	}
 	
